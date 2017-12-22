@@ -11,4 +11,7 @@ Start:
 Checkers are placed on the black squares of the first three rows of each side of the board.
 
 Play:
-Checkers can be moved diagonally only, foward only, and one move only. Jumping/capturing opponenet's checker(s) can be done if there are vaccant squares behind each. If the checker reaches the last row of your opponenet's side, then it has become a king. Kings are like checkers, but can move foward and backward.
+Checkers can be moved diagonally only, foward only, and one move only. 
+Jumping/capturing opponenet's checker(s) can be done if there are vaccant squares behind each. 
+If the checker reaches the last row of your opponenet's side, then it has become a king. 
+Kings are like checkers, but can move foward and backward.
