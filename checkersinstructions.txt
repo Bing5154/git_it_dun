@@ -1,0 +1,14 @@
+Contents:
+One checkers board
+12 black checkers
+12 red checkers
+
+Rules:
+Object: 
+The object of the game is to capture all of your opponenet's checkers or block them, so they cannot move. 
+
+Start:
+Checkers are placed on the black squares of the first three rows of each side of the board.
+
+Play:
+Checkers can be moved diagonally only, foward only, and one move only. Jumping/capturing opponenet's checker(s) can be done if there are vaccant squares behind each. If the checker reaches the last row of your opponenet's side, then it has become a king. Kings are like checkers, but can move foward and backward.
