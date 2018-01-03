@@ -5,7 +5,14 @@ public abstract class Checkers{
     public int getCheckerX(){
 	return checkerX();
     }
-	public boolean forceCapture(checkerX, checkerY){
+
+    public boolean forceCapture(checkerX, checkerY){
 	
     }
+
+    public abstract boolean moveValid();
+
+    public abstract void move();
+
+    
 }
