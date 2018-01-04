@@ -1,11 +1,10 @@
-<Team Name (without word "team")>
-<Member Bubbles>
-<Member Buttercup>
-<Member Blossom>
-pd <pd#>
+git_it_dun
+Brandon Chong
+Bing Li
+Angela Tom
+pd 2
 ---------------------
-<Project>
-
+Checkers Game
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
