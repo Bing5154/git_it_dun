@@ -1,4 +1,4 @@
-public class Game {
+public class Board {
     private String whoseTurn;
     private final static int SIZE = 8;
     private int Rleft;
@@ -6,7 +6,7 @@ public class Game {
     private String[][] board;
 
 
-    public Game() {
+    public Board() {
 	board = new String[SIZE][SIZE];
 	Bleft = 12;
 	Rleft = 12;
@@ -58,7 +58,7 @@ public class Game {
     }
 
     public static void main(String args[]) {
-	Game hey = new Game();
+	Board hey = new Board();
 	hey.initBoard();
 	hey.printBoard();
 	
