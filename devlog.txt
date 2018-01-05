@@ -4,7 +4,7 @@ Bing Li
 Angela Tom
 pd 2
 ---------------------
-Checkers Game
+Checkers Board Game
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -69,9 +69,19 @@ LESSONS LEARNED
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
 
-yyyy-mm-dd
+2017-01-03
 --------------------------------------------------------------
-<Member> :: <Thing member did.>
-<Member> :: <Thing member did.>
-<Member> :: <Thing member did.>
+Bing Li :: Proposal
+Angela Tom :: Proposal
+Brandon Chong :: Proposal
+
+2017-01-04
+Bing Li :: Fixed proposal and UML
+Angela Tom :: Fixed proposal and looked over UML 
+Brandon Chong :: Fixed proposal and UML
+
+2017-01-05
+Angela Tom :: Did Checkers.java first version 
+Brandon Chong :: Started bCheckers.java and helped plan the board 
+Bing Li :: Started to fix the checker board
 ==============================================================
