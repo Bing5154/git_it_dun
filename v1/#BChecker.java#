@@ -1,17 +1,17 @@
-public class RChecker extends Checkers {
-     public RChecker() {
-	color = 'r'
+public class BChecker extends Checkers{
+    public BChecker() {
+	color = 'b';
     }
 
     //show the checkerpiece on printboard
      public String toString() {
-	return "r";
+	return "b";
     }
 
 
     public boolean frValid(int xpos, int ypos) {
-	xpos += 1;
-	ypos += 1;
+	xpos -= 1;
+	ypos -= 1;
 	if(Board.getColor(xpos,ypos) == '_') {
 	    return true;
 	}
@@ -20,12 +20,12 @@ public class RChecker extends Checkers {
 
     public void frMove(int xpos,int ypos) {
 	Board.setColor(xpos, ypos, '_');
-	Board.setColor(xpos + 1, ypos + 1, 'r');
+	Board.setColor(xpos + 1, ypos + 1, 'b');
     }
 
     public boolean flValid(int xpos, int ypos) {
-	ypos += 1;
-	xpos -= 1;
+	ypos -= 1;
+	xpos += 1;
 	if(Board.getColor(xpos,ypos) == '_') {
 	    return true;
 	}
@@ -33,15 +33,15 @@ public class RChecker extends Checkers {
     }
 
     public void flMove(int xpos,int ypos) {
-	Board.setColor(xpos - 1, ypos + 1, 'r');
+	Board.setColor(xpos - 1, ypos + 1, 'b');
 	Board.setColor(xpos, ypos, '_');   
     }
 
     public boolean forcedCapture(int xpos, int ypos) {
-	if((Board.getColor(xpos + 1,ypos + 1) == 'b' &&
+	if((Board.getColor(xpos + 1,ypos + 1) == 'r' &&
 	    Board.getColor(xpos + 2, ypos + 2) == '_' )||
 	   (Board.getColor(xpos - 2, xpos + 2) == '_' &&
-	    Board.getColor(xpos - 1, ypos + 1) == 'b')) {
+	    Board.getColor(xpos - 1, ypos + 1) == 'r')) {
 	    return true;
 	}
 	return false;
@@ -49,24 +49,24 @@ public class RChecker extends Checkers {
 
     public void multJump() {
 	while (forcedCapture(int xpos,int ypos)) {
-	    if(Board.getColor(xpos + 1,ypos + 1) == 'b' &&
+	    if(Board.getColor(xpos + 1,ypos + 1) == 'r' &&
 	       Board.getColor(xpos + 2, ypos + 2) == '_') {
 
-		Board.setColor(xpos + 2, ypos + 2, 'r');
+		Board.setColor(xpos + 2, ypos + 2, 'b');
 		Board.setColor(xpos, ypos, '_');
 		Board.setColor(xpos + 1, ypos + 1, '_');
-		Board.setbLeft();
+		Board.setrLeft();
 	    }
 	    else if(Board.getColor(xpos - 2, xpos + 2) == '_' &&
-		    Board.getColor(xpos - 1, ypos + 1) == 'b') {
-		Board.setColor(xpos - 2, ypos + 2, 'r');
+		    Board.getColor(xpos - 1, ypos + 1) == 'r') {
+		Board.setColor(xpos - 2, ypos + 2, 'b');
 		Board.setColor(xpos, ypos , '_');
 		Board.setColor(xpos + 1, ypos + 1, '_');
-		Board.setbLeft();
+		Board.setrLeft();
 	    }		
 	}
     }
-    
+			 
 
 }
 
