@@ -4,6 +4,8 @@ public class Board {
     private String whoseTurn;
     private final static int SIZE = 8;
     private Checkers[][] board;
+    private int rLeft = 12;
+    private int bLeft = 12;
  
 
     public Board() {
@@ -12,6 +14,14 @@ public class Board {
 	
     }
 
+    public int getrLeft(){
+	return rLeft;
+    }
+
+    public int getbLeft(){
+	return bLeft;
+    }
+    
     public void initBoard() {
 	//initialize all elements in the 2d array as Checkers
 	//Checkers should have a toString that represent them as "_"

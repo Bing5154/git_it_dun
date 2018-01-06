@@ -8,6 +8,7 @@ import java.io.*;
 import java.util.*;
 
 public class Woo{
+    
     // Instance vars
     private boolean ingame;
     private int xpos;
@@ -25,7 +26,33 @@ public class Woo{
 	ingame = true;
 	runGame();
     }
-    
+
+    //
+    public int[] getPos(){
+	return {xpos, ypos};
+    }
+
+    //
+    public int getnumMove(){
+	return numMove;
+    }
+
+    //
+    public String getUserName(){
+	return userName;
+    }
+
+    //
+    public boolean inBoardx(int x){
+	return x >= 0 && x <-= 7;
+    }
+
+    //
+    public boolean inBoardy(int y){
+	return y >= 0 && y <= 7;
+    }
+
+    //
     public void runGame(){
 	System.out.println("Welcome to Checkers v1");
 	while (ingame){
@@ -34,13 +61,16 @@ public class Woo{
 	    x.printBoard();
 	    System.out.println("Choose your checkerpiece(x-coord)");
 	    try{
-		if(
-		checkerX = Integer.parseInt( in.readLine() );
+		if(inBoardx(Integer.parseInt( in.readLine() ))){
+		    xpos = Integer.parseInt( in.readLine() );
+		}
 	    } catch (Exception e){
 	    }
 	    System.out.println("Choose your checkerpiece(y-coord)");
 	    try{
-		checkerY = Integer.parseInt( in.readLine() );
+		if(inBoardy(Integer.parseInt( in.readLine() ))){
+		    ypos = Integer.parseInt( in.readLine() );
+		}
 	    } catch (Exception e){
 	    }
 	    System.out.println("Choose a spot for the checkerpiece to move(x-coord)");
