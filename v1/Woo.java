@@ -27,9 +27,12 @@ public class Woo{
 	runGame();
     }
 
-    //
+    // 
     public int[] getPos(){
-	return {xpos, ypos};
+	int[] retArray = new int[2];
+	retArray[0] = xpos;
+	retArray[1] = ypos;
+	return retArray;
     }
 
     //
@@ -44,7 +47,7 @@ public class Woo{
 
     //
     public boolean inBoardx(int x){
-	return x >= 0 && x <-= 7;
+	return x >= 0 && x <= 7;
     }
 
     //
@@ -53,50 +56,86 @@ public class Woo{
     }
 
     //
+    public int chooseXCoord(){
+	System.out.println("Choose your checkerpiece(x-coord).");
+	try{
+	    Object x = Integer.parseInt( in.readLine() );
+	    if (! (x instanceof Integer)){
+		System.out.println("Please type in an integer");
+		chooseXCoord();
+	    }		    
+	    if(inBoardx((int)x)){
+		xpos = (int) x;
+	    } else{
+		System.out.println("That coordinate is not on the board!");
+		chooseXCoord();    
+	    }} catch (Exception e){
+	}
+	return xpos;
+    }
+
+
+    //
+    public int chooseYCoord(){
+	System.out.println("Choose your checkerpiece(y-coord).");
+	try{
+	    Object y = Integer.parseInt( in.readLine() );
+	    if (! (y instanceof Integer)){
+		System.out.println("Please type in an integer");
+		chooseYCoord();
+	    }		    
+	    if(inBoardy((int)y)){
+		ypos = (int)y;
+	    } else{
+		System.out.println("That coordinate is not on the board!");
+		chooseYCoord();    
+	    }} catch (Exception e){
+	}
+	return ypos;
+    }
+
+
+    
     public void runGame(){
 	System.out.println("Welcome to Checkers v1");
 	while (ingame){
 	    Board x = new Board();
 	    x.initBoard();
 	    x.printBoard();
-	    System.out.println("Choose your checkerpiece(x-coord)");
-	    try{
-		if(inBoardx(Integer.parseInt( in.readLine() ))){
-		    xpos = Integer.parseInt( in.readLine() );
-		}
-	    } catch (Exception e){
-	    }
-	    System.out.println("Choose your checkerpiece(y-coord)");
-	    try{
-		if(inBoardy(Integer.parseInt( in.readLine() ))){
-		    ypos = Integer.parseInt( in.readLine() );
-		}
-	    } catch (Exception e){
-	    }
+	    chooseXCoord();
+	    chooseYCoord();
+	    System.out.println("You chose " + getPos());
+	   
 	    System.out.println("Choose a spot for the checkerpiece to move(x-coord)");
 	    try{
-		
+		if(inBoardx(Integer.parseInt( in.readLine() ))){
+		    System.out.println("This will check for valid move and execute");
+		}
 	    } catch (Exception e){
 	    }
 	    System.out.println("Choose a spot for the checkerpiece to move(y-coord)");
 	    try{
-
+		if(inBoardy(Integer.parseInt( in.readLine() ))){
+		    System.out.println("This will check for valid move and execute");
+		}
 	    }catch (Exception e){
 	    }
-	    if(x.RLeft == 0){
+	    if(x.getrLeft() == 0){
 		ingame = false;
 		System.out.println("You lost!");
 	    }
-	    if(x.BLeft == 0){
+	    if(x.getbLeft() == 0){
 		ingame = false;
 		System.out.println("You win!");
-	}
+	    }
 	    
+	}
     }
-    public static void main(String[] args){
-	Woo game = new Woo();
+
+public static void main(String[] args){
+    Woo game = new Woo();
 	
 	
-    }
+}
 }
 
