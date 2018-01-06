@@ -1,8 +1,6 @@
 /*
   Team git-it-dun
   Driver Class
-
-UNFINISHED
 */
 
 // Importing necessary classes
@@ -12,10 +10,14 @@ import java.util.*;
 public class Woo{
     // Instance vars
     private boolean ingame;
-    private int checkerX;
-    private int checkerY;
+    private int xpos;
+    private int ypos;
     private InputStreamReader isr;
     private BufferedReader in;
+    private String move;
+    private int numMove;
+    private String userName;
+    
     // Default Constructor
     public Woo(){
 	isr = new InputStreamReader( System.in );
@@ -23,14 +25,16 @@ public class Woo{
 	ingame = true;
 	runGame();
     }
+    
     public void runGame(){
 	System.out.println("Welcome to Checkers v1");
 	while (ingame){
-	    Game x = new Game();
+	    Board x = new Board();
 	    x.initBoard();
 	    x.printBoard();
 	    System.out.println("Choose your checkerpiece(x-coord)");
 	    try{
+		if(
 		checkerX = Integer.parseInt( in.readLine() );
 	    } catch (Exception e){
 	    }
@@ -41,7 +45,7 @@ public class Woo{
 	    }
 	    System.out.println("Choose a spot for the checkerpiece to move(x-coord)");
 	    try{
-
+		
 	    } catch (Exception e){
 	    }
 	    System.out.println("Choose a spot for the checkerpiece to move(y-coord)");
@@ -57,6 +61,7 @@ public class Woo{
 		ingame = false;
 		System.out.println("You win!");
 	}
+	    
     }
     public static void main(String[] args){
 	Woo game = new Woo();

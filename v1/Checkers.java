@@ -12,13 +12,13 @@ public class Checkers {
 	color = '_';
     }
     
-    public boolean inBoard(int xpos, int ypos){
-	if (xpos <= 7 && xpos >= 0 && ypos <= 7 && ypos >= 0){
-	    return true;
-	}
-	return false;
+    public boolean inBoardx(int xpos){
+	return xpos <= 7 && xpos >= 0;
     }
 
+    public boolean inBoardy(int ypos){
+	return ypos <= 7 && ypos >= 7;
+    }
     public int getrLeft(){
 	return rLeft;
     }
