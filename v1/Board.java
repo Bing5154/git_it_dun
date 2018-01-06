@@ -4,14 +4,11 @@ public class Board {
     private String whoseTurn;
     private final static int SIZE = 8;
     private ArrayList<Arraylist<Checkers>> board;
-    private ArrayList<Checkers> red;
-    private ArrayList<Checkers> black;
+  
 
 
     public Board() {
-	board = new String[SIZE][SIZE];
-	red = new ArrayList <rCheckers>(12);
-	black = new ArrayList<Checkers>(12);	
+	board = new String[SIZE][SIZE];	
   	whoseTurn = "r";
 	
     }
