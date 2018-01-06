@@ -24,21 +24,21 @@ public class Board {
 	//after setting all elements into Checkers
 	//set specific items of the arraylist into black checkers and red checkers
 	for(int j = 1; j < SIZE; j+=2) {
-	    board[1][j] = new bCheckers();
-	    board[5][j] = new rCheckers();
-	    board[7][j] = new rCheckers();
+	    board[1][j] = new BChecker();
+	    board[5][j] = new RChecker();
+	    board[7][j] = new RChecker();
 	}
 
 	for(int j = 0; j < SIZE; j+=2) {
-	    board[0][j] = new bCheckers();
-	    board[2][j] = new bCheckers();
-	    board[6][j] = new rCheckers();
+	    board[0][j] = new BChecker();
+	    board[2][j] = new BChecker();
+	    board[6][j] = new RChecker();
         
 	}
     }
 
     public void printBoard() {
-	System.out.println("  0 1 2 3 4 5 6 7 ");
+	System.out.println("  0  1  2  3  4  5  6  7 ");
 	for(int i = 0; i < SIZE; i++) {
 	    System.out.print(i + " ");
 	    for(int j = 0; j < SIZE; j++) {

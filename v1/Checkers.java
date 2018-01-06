@@ -5,17 +5,13 @@ public class Checkers {
     private boolean redTurn; // true = red turn and false = black turn
     protected char color; // r is for red and b is for black
 
-    public Checkers {
+    public Checkers() {
 	rLeft = 12;
 	bLeft = 12;
 	redTurn = true;
+	color = '_';
     }
-
-    public abstract boolean frValid(int xpos, int ypos);
-    public abstract void frMove(int xpos, int ypos);
-    public abstract boolean flValid(int xpos, int ypos);
-    public abstract void flMOve(int xpos, int ypos);
-
+    
     public boolean inBoard(int xpos, int ypos){
 	if (xpos <= 7 && xpos >= 0 && ypos <= 7 && ypos >= 0){
 	    return true;
@@ -23,7 +19,6 @@ public class Checkers {
 	return false;
     }
 
-    public abstract boolean forcedCapture(int xpos, int ypos);
     public int getrLeft(){
 	return rLeft;
     }
@@ -33,6 +28,10 @@ public class Checkers {
     public boolean getTurn(){
 	return redTurn;
     }
-    public abstract char getColor;
-    public abstract char setColor;
+
+    public String toString() {
+	return "_";
+    }
+
+    
 }
