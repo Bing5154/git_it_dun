@@ -3,12 +3,11 @@ import java.util.ArrayList;
 public class Board {
     private String whoseTurn;
     private final static int SIZE = 8;
-    private ArrayList<Arraylist<Checkers>> board;
-  
-
+    private Checkers[][] board;
+ 
 
     public Board() {
-	board = new String[SIZE][SIZE];	
+	board = new Checkers[SIZE][SIZE];	
   	whoseTurn = "r";
 	
     }
@@ -18,22 +17,23 @@ public class Board {
 	//Checkers should have a toString that represent them as "_"
 	for(int i = 0; i < SIZE; i++) {
 	    for(int j = 0; j < SIZE; j++) {
-		board.get(i).set(j, new Checkers());
+		board[i][j] = new Checkers();
 	    }
 	}
 
 	//after setting all elements into Checkers
 	//set specific items of the arraylist into black checkers and red checkers
 	for(int j = 1; j < SIZE; j+=2) {
-	    board.get(1).set(j,new bCheckers());
-	    board.get(5).set(j,new rCheckers());
-	    board.get(7).set(j,new rCheckers());
+	    board[1][j] = new bCheckers();
+	    board[5][j] = new rCheckers();
+	    board[7][j] = new rCheckers();
 	}
 
 	for(int j = 0; j < SIZE; j+=2) {
-	    board.get(0).set(j,new bCheckers());
-	    board.get(2).set(j,new bCheckers());
-	    board.get(6).set(j,new rCheckers());
+	    board[0][j] = new bCheckers();
+	    board[2][j] = new bCheckers();
+	    board[6][j] = new rCheckers();
+        
 	}
     }
 
@@ -42,7 +42,7 @@ public class Board {
 	for(int i = 0; i < SIZE; i++) {
 	    System.out.print(i + " ");
 	    for(int j = 0; j < SIZE; j++) {
-		System.out.print(board.get(i).get(j).toString() + "  ");	
+		System.out.print(board[i][j].toString() + "  ");	
 	    }
 	    System.out.println();
 	}
