@@ -1,6 +1,6 @@
 public class Checkers {
     // Instance vars
-    protected char color; 
+    private char color; 
 
     public Checkers() {
 	color = '_';
