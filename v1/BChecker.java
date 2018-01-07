@@ -1,6 +1,6 @@
 public class BChecker extends Checkers{
     public BChecker() {
-	color = 'b'
+	color = 'b';
     }
 
     //show the checkerpiece on printboard

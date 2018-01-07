@@ -30,14 +30,6 @@ public class Board {
      public void setbLeft() {
 	bLeft -= 1;
     }
-
-    public char getColor(int xpos,int ypos) {
-	return board[xpos][ypos].color;
-    }
-
-    public void setColor(int xpos, int ypos, char ncolor) {
-	board[xpos][ypos].color = ncolor;
-    }
     
     public void initBoard() {
 	//initialize all elements in the 2d array as Checkers

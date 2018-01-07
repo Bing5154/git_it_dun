@@ -1,6 +1,6 @@
 public class RChecker extends Checkers {
      public RChecker() {
-	color = 'r'
+	 color = 'r';
     }
 
     //show the checkerpiece on printboard
@@ -66,7 +66,5 @@ public class RChecker extends Checkers {
 	    }		
 	}
     }
-    
-
 }
 

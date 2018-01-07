@@ -84,4 +84,9 @@ Brandon Chong :: Fixed proposal and UML
 Angela Tom :: Did Checkers.java first version 
 Brandon Chong :: Started bCheckers.java and helped plan the board 
 Bing Li :: Started to fix the checker board
+
+2017-01-06
+Angela Tom :: Fixed Board.java and Checkers.java; worked on Woo.java
+Bing Li :: Fixed Board.java and modified Checkers.java; worked on bCheckers.java
+
 ==============================================================
