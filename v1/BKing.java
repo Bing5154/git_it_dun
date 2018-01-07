@@ -1,4 +1,4 @@
-public class BKing {
+public class BKing extends Checkers{
     // Instance vars
     private char color; 
 

@@ -1,8 +1,8 @@
-public class ECheckers {
+public class Checkers {
     // Instance vars
     private char color; 
 
-    public ECheckers() {
+    public Checkers() {
 	color = '_';
     }
     

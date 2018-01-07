@@ -1,4 +1,4 @@
-public class BChecker {
+public class BChecker extends Checkers{
     // Instance vars
     private char color; 
 

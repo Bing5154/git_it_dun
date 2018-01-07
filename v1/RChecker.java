@@ -1,8 +1,8 @@
-public class RChecker {
+public class RChecker extends Checkers{
     // Instance vars
     private char color; 
 
-    public Rchecker() {
+    public RChecker() {
 	color = 'r';
     }
 

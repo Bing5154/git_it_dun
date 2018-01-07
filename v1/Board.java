@@ -3,13 +3,13 @@ import java.util.ArrayList;
 public class Board {
     private String whoseTurn;
     private final static int SIZE = 8;
-    private ECheckers[][] board;
+    private Checkers[][] board;
     private int rLeft = 12;
     private int bLeft = 12;
  
 
     public Board() {
-	board = new ECheckers[SIZE][SIZE];	
+	board = new Checkers[SIZE][SIZE];	
   	whoseTurn = "r";
 	
     }
@@ -36,7 +36,7 @@ public class Board {
 	//Checkers should have a toString that represent them as "_"
 	for(int i = 0; i < SIZE; i++) {
 	    for(int j = 0; j < SIZE; j++) {
-		board[i][j] = new ECheckers();
+		board[i][j] = new Checkers();
 	    }
 	}
 

@@ -1,4 +1,4 @@
-public class RKing {
+public class RKing extends Checkers{
     // Instance vars
     private char color; 
 
