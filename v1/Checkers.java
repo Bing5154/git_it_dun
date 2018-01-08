@@ -5,6 +5,10 @@ public class Checkers {
     public Checkers() {
 	color = '_';
     }
+
+    public char getColor() {
+	return color;
+    }
     
     public String toString() {
 	return "_";

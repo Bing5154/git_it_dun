@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 
 public class Board {
     private String whoseTurn;
@@ -18,7 +17,7 @@ public class Board {
 	return rLeft;
     }
 
-     public void setrLeft() {
+    public void setrLeft() {
 	rLeft -= 1;
     }
 
@@ -27,7 +26,7 @@ public class Board {
 	return bLeft;
     }
 
-     public void setbLeft() {
+    public void setbLeft() {
 	bLeft -= 1;
     }
     
@@ -67,10 +66,43 @@ public class Board {
 	}
     }
 
+    public boolean flValid(int x, int y){
+	boolean bol = true;
+	if (board[x][y].getColor() == 'b' || board[x][y].getColor() == '_' ){
+	    bol = false;
+	}
+	if ( x-1 < 0 || y-1 < 0) {
+	    bol = false;
+	} else if(board[x-1][y-1].getColor() != '_') {
+	    bol =  false;
+	}
+	return bol;
+    }
+
+    public boolean frValid(int x, int y) {
+	boolean bol = true;
+	if (board[x][y].getColor() == 'b' || board[x][y].getColor() == '_' ){
+	    bol = false;
+	}
+	if ( x-1 < 0 || y+1 > 7) {
+	    bol = false;
+	}else if(board[x-1][y+1].getColor() != '_') {
+	    bol =  false;
+	}
+	return bol;
+    }
+
+    
     public static void main(String args[]) {
 	Board hey = new Board();
 	hey.initBoard();
 	hey.printBoard();
-	
+	System.out.println( hey.flValid(5,1));
+	System.out.println( hey.flValid(2,2));
+	System.out.println( hey.frValid(5,3));
+
+	System.out.println( hey.flValid(6,0));
+
+		     
     }
 }
