@@ -11,7 +11,7 @@ public class Checkers {
     }
     
     public String toString() {
-	return "_";
+	return color + "";
     }
 
     
