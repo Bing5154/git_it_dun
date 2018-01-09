@@ -92,6 +92,32 @@ public class Board {
 	return bol;
     }
 
+        public boolean blValid(int x, int y) {
+	boolean bol = true;
+	if (board[x][y].getColor() == 'b' || board[x][y].getColor() == '_' ){
+	    bol = false;
+	}
+	if ( x+1 > 7 || y-1 < 0) {
+	    bol = false;
+	}else if(board[x+1][y-1].getColor() != '_') {
+	    bol =  false;
+	}
+	return bol;
+    }
+
+        public boolean brValid(int x, int y) {
+	boolean bol = true;
+	if (board[x][y].getColor() == 'b' || board[x][y].getColor() == '_' ){
+	    bol = false;
+	}
+	if ( x+1 > 7 || y+1 > 7) {
+	    bol = false;
+	}else if(board[x+1][y+1].getColor() != '_') {
+	    bol =  false;
+	}
+	return bol;
+    }
+
     
     public static void main(String args[]) {
 	Board hey = new Board();
