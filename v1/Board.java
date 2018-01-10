@@ -94,7 +94,7 @@ public class Board {
 
         public boolean blValid(int x, int y) {
 	boolean bol = true;
-	if (board[x][y].getColor() == 'b' || board[x][y].getColor() == '_' ){
+	if (board[x][y].getColor() == 'r' || board[x][y].getColor() == '_' ){
 	    bol = false;
 	}
 	if ( x+1 > 7 || y-1 < 0) {
@@ -107,7 +107,7 @@ public class Board {
 
         public boolean brValid(int x, int y) {
 	boolean bol = true;
-	if (board[x][y].getColor() == 'b' || board[x][y].getColor() == '_' ){
+	if (board[x][y].getColor() == 'r' || board[x][y].getColor() == '_' ){
 	    bol = false;
 	}
 	if ( x+1 > 7 || y+1 > 7) {
@@ -126,8 +126,8 @@ public class Board {
 	System.out.println( hey.flValid(5,1));
 	System.out.println( hey.flValid(2,2));
 	System.out.println( hey.frValid(5,3));
-
 	System.out.println( hey.flValid(6,0));
+	System.out.println( hey.blValid(5,1));
 
 		     
     }

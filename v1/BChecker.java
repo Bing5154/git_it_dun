@@ -6,11 +6,7 @@ public class BChecker extends Checkers{
 	color = 'b';
     }
 
-    public char getColor(){
-	return color;
+    public String toString(){
+	return color + "";
     }
-    
-    public String toString() {
-	return "b";
-    }    
 }
