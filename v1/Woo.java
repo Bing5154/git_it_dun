@@ -6,23 +6,21 @@
 // Importing necessary classes
 import java.io.*;
 import java.util.*;
+import cs1.Keyboard;
+
 
 public class Woo{
     
     // Instance vars
     private boolean ingame;
-    private int xpos;
-    private int ypos;
-    private InputStreamReader isr;
-    private BufferedReader in;
+    private int row;
+    private int column;
     private String move;
     private int numMove;
     private String userName;
     
     // Default Constructor
     public Woo(){
-	isr = new InputStreamReader( System.in );
-	in = new BufferedReader( isr );
 	ingame = true;
 	runGame();
     }
@@ -30,11 +28,12 @@ public class Woo{
     // 
     public int[] getPos(){
 	int[] retArray = new int[2];
-	retArray[0] = xpos;
-	retArray[1] = ypos;
+	retArray[0] = row;
+	retArray[1] = column;
 	return retArray;
     }
 
+  
     //
     public int getnumMove(){
 	return numMove;
@@ -57,41 +56,17 @@ public class Woo{
 
     //
     public int chooseXCoord(){
-	System.out.println("Choose your checkerpiece(x-coord).");
-	try{
-	    Object x = Integer.parseInt( in.readLine() );
-	    if (! (x instanceof Integer)){
-		System.out.println("Please type in an integer");
-		chooseXCoord();
-	    }		    
-	    if(inBoardx((int)x)){
-		xpos = (int) x;
-	    } else{
-		System.out.println("That coordinate is not on the board!");
-		chooseXCoord();    
-	    }} catch (Exception e){
-	}
-	return xpos;
+	System.out.println("Choose your checkerpiece(row number).");
+        row = Keyboard.readInt(); 
+	return row;
     }
 
 
     //
     public int chooseYCoord(){
-	System.out.println("Choose your checkerpiece(y-coord).");
-	try{
-	    Object y = Integer.parseInt( in.readLine() );
-	    if (! (y instanceof Integer)){
-		System.out.println("Please type in an integer");
-		chooseYCoord();
-	    }		    
-	    if(inBoardy((int)y)){
-		ypos = (int)y;
-	    } else{
-		System.out.println("That coordinate is not on the board!");
-		chooseYCoord();    
-	    }} catch (Exception e){
-	}
-	return ypos;
+	System.out.println("Choose your checkerpiece(column number).");
+	column = Keyboard.readInt();
+	return column;
     }
 
 
@@ -105,17 +80,18 @@ public class Woo{
 	    chooseXCoord();
 	    chooseYCoord();
 	    System.out.println("You chose " + getPos());
+	    System.out.println(row + "." + column);
 	   
 	    System.out.println("Choose a spot for the checkerpiece to move(x-coord)");
 	    try{
-		if(inBoardx(Integer.parseInt( in.readLine() ))){
+		if(inBoardx(Keyboard.readInt())){
 		    System.out.println("This will check for valid move and execute");
 		}
 	    } catch (Exception e){
 	    }
 	    System.out.println("Choose a spot for the checkerpiece to move(y-coord)");
 	    try{
-		if(inBoardy(Integer.parseInt( in.readLine() ))){
+		if(inBoardy(Keyboard.readInt())){
 		    System.out.println("This will check for valid move and execute");
 		}
 	    }catch (Exception e){
