@@ -6,9 +6,6 @@ public class BKing extends Checkers{
 	color = 'B';
     }
 
-    public char getColor(){
-	return color;
-    }
     
     public String toString() {
 	return "B";
