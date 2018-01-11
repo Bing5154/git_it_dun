@@ -1,121 +1,121 @@
-	/*
-	  Team git-it-dun
-	  Driver Class
-	*/
+/*
+  Team git-it-dun
+  Driver Class
+*/
 
-	// Importing necessary classes
-	import java.io.*;
-	import java.util.*;
-	import cs1.Keyboard;
+// Importing necessary classes
+import java.io.*;
+import java.util.*;
+import cs1.Keyboard;
 
 
-	public class Woo{
+public class Woo{
 		
-		// Instance vars
-		private boolean ingame;
-		private int row;
-		private int column;
-		private String move;
-		private int numMove;
-		private String userName;
+    // Instance vars
+    private boolean ingame;
+    private int row;
+    private int column;
+    private String move;
+    private int numMove;
+    private String userName;
 		
-		// Default Constructor
-		public Woo(){
-		ingame = true;
-		runGame();
-		}
+    // Default Constructor
+    public Woo(){
+	ingame = true;
+	runGame();
+    }
 
-		// 
-		public int[] getPos(){
-		int[] retArray = new int[2];
-		retArray[0] = row;
-		retArray[1] = column;
-		return retArray;
-		}
+    // 
+    public int[] getPos(){
+	int[] retArray = new int[2];
+	retArray[0] = row;
+	retArray[1] = column;
+	return retArray;
+    }
 
-		//
-		public void printPos(){
-			System.out.println("[" + row + "," + column + "]");
-		}
+    //
+    public void printPos(){
+	System.out.println("[" + row + "," + column + "]");
+    }
 		
-		//
-		public int getnumMove(){
-		return numMove;
-		}
+    //
+    public int getnumMove(){
+	return numMove;
+    }
 
-		//
-		public String getUserName(){
-		return userName;
-		}
+    //
+    public String getUserName(){
+	return userName;
+    }
 
-		//
-		public boolean inBoardx(int x){
-		return x >= 0 && x <= 7;
-		}
+    //
+    public boolean inBoardx(int x){
+	return x >= 0 && x <= 7;
+    }
 
-		//
-		public boolean inBoardy(int y){
-		return y >= 0 && y <= 7;
-		}
+    //
+    public boolean inBoardy(int y){
+	return y >= 0 && y <= 7;
+    }
 
-		//
-		public int chooseXCoord(){
-		System.out.println("Choose your checkerpiece(row number).");
-			row = Keyboard.readInt(); 
-		return row;
-		}
+    //
+    public int chooseXCoord(){
+	System.out.println("Choose your checkerpiece(row number).");
+	row = Keyboard.readInt(); 
+	return row;
+    }
 
 
-		//
-		public int chooseYCoord(){
-		System.out.println("Choose your checkerpiece(column number).");
-		column = Keyboard.readInt();
-		return column;
-		}
+    //
+    public int chooseYCoord(){
+	System.out.println("Choose your checkerpiece(column number).");
+	column = Keyboard.readInt();
+	return column;
+    }
 
 
 		
-		public void runGame(){
-		System.out.println("Welcome to Checkers v1");
-		while (ingame){
-			Board x = new Board();
-			x.initBoard();
-			x.printBoard();
-			chooseXCoord();
-			chooseYCoord();
-			System.out.println("You chose ");
-			printPos();
+    public void runGame(){
+	System.out.println("Welcome to Checkers v1");
+	while (ingame){
+	    Board x = new Board();
+	    x.initBoard();
+	    x.printBoard();
+	    chooseXCoord();
+	    chooseYCoord();
+	    System.out.println("You chose ");
+	    printPos();
 		   
-			System.out.println("Choose a spot for the checkerpiece to move(x-coord)");
-			try{
-			if(inBoardx(Keyboard.readInt())){
-				System.out.println("This will check for valid move and execute");
-			}
-			} catch (Exception e){
-			}
-			System.out.println("Choose a spot for the checkerpiece to move(y-coord)");
-			try{
-			if(inBoardy(Keyboard.readInt())){
-				System.out.println("This will check for valid move and execute");
-			}
-			}catch (Exception e){
-			}
-			if(x.getrLeft() == 0){
-			ingame = false;
-			System.out.println("You lost!");
-			}
-			if(x.getbLeft() == 0){
-			ingame = false;
-			System.out.println("You win!");
-			}
+	    System.out.println("Choose a spot for the checkerpiece to move(x-coord)");
+	    try{
+		if(inBoardx(Keyboard.readInt())){
+		    System.out.println("This will check for valid move and execute");
+		}
+	    } catch (Exception e){
+	    }
+	    System.out.println("Choose a spot for the checkerpiece to move(y-coord)");
+	    try{
+		if(inBoardy(Keyboard.readInt())){
+		    System.out.println("This will check for valid move and execute");
+		}
+	    }catch (Exception e){
+	    }
+	    if(x.getrLeft() == 0){
+		ingame = false;
+		System.out.println("You lost!");
+	    }
+	    if(x.getbLeft() == 0){
+		ingame = false;
+		System.out.println("You win!");
+	    }
 			
-		}
-		}
+	}
+    }
 
-	public static void main(String[] args){
-		Woo game = new Woo();
+    public static void main(String[] args){
+	Woo game = new Woo();
 		
 		
-	}
-	}
+    }
+}
 
