@@ -33,7 +33,11 @@ public class Woo{
 	return retArray;
     }
 
-  
+	//
+	public void printPos(){
+		System.out.println(row + "." + column);
+	}
+	
     //
     public int getnumMove(){
 	return numMove;
@@ -79,8 +83,8 @@ public class Woo{
 	    x.printBoard();
 	    chooseXCoord();
 	    chooseYCoord();
-	    System.out.println("You chose " + getPos());
-	    System.out.println(row + "." + column);
+	    System.out.println("You chose ");
+	    printPos();
 	   
 	    System.out.println("Choose a spot for the checkerpiece to move(x-coord)");
 	    try{
