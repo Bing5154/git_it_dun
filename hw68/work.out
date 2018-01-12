@@ -62,6 +62,26 @@ private void fillBlock(String str) {
    }
 }
 
+12b 
+public String encryptMessage(String message) {
+      String msg = " ";
+      int total = numColumns * numRows;
+      int call = message.length() / total;
+      if(message.equals("")) {
+         return msg;
+      }
+      for (int i = 0; i < call; i++) {
+          //instantiate a new letterboard using the constructor;
+          String[][] l = new RouteCipher();
+          l.fillblock();
+	  for(int c = 0; c < l.numColumns; c++) {
+             msg += l.encryptBlock(); 
+          }
+       }
+     return msg;
+      
+}
+
 
 
 
