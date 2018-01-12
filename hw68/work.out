@@ -1,0 +1,34 @@
+git_it_dun -- Angela Tom, Bing Li, Brandon Chong
+APCS1 pd2
+HW68 -- PPMP
+2018-01-12
+
+1.  C
+2.  B
+3.  D
+4.  E
+5.  E
+6.  B
+7.  A
+8.  D
+9.  C
+10.  D
+
+11a. 
+
+public int nextTankToFill(int threshold){
+    int counter = 0;
+    int retInt = filler.getCurrentIndex();
+    for (FuelTank x:tanks){
+        if(x.getFuelLevel <= threshold){
+	retInt = counter;
+	break;
+	}
+	counter ++;
+    }
+    return retInt;
+}
+
+11b.
+
+
