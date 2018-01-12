@@ -30,5 +30,23 @@ public int nextTankToFill(int threshold){
 }
 
 11b.
+public void moveToLocation(int locIndex) {
+    int place = filler.getCurrentIndex;
+    int moves = 0;
+    if (place > locIndex){
+	moves = place - locIndex;
+    } else {
+	moves = locIndex - place;
+    }
+    if (place > locIndex && isFacingRight()){
+	filler.changeDirection();
+    } else if (place < locIndex && !isFacingRight()){
+	filler.changeDirection();
+    }
+    filler.moveForward(moves);
+}
+
+12.
+
 
 
