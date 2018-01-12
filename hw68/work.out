@@ -47,6 +47,21 @@ public void moveToLocation(int locIndex) {
 }
 
 12.
+private void fillBlock(String str) {
+   int i = 0;
+   for (int r = 0; r < numRows; r++) {
+       for (int c = 0; c < numColumns; c++) {
+       	  letterblock[r][c] = str.substring(i, i+1);
+	  if(str.length() < r * c) {
+             letterblock[r][c] = "A";
+	  } else if (str.length() > r * c) {
+	     break;
+          }
+	  i++;
+       }	
+   }
+}
+
 
 
 
