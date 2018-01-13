@@ -1,17 +1,17 @@
 public class Checkers {
     // Instance vars
-    private char color; 
+    protected char color;
 
     public Checkers() {
-	color = '_';
+	    color = '_';
     }
 
     public char getColor() {
-	return color;
+	    return color;
     }
     
     public String toString() {
-	return color + "";
+	    return color + "";
     }
 
     

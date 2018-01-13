@@ -65,7 +65,9 @@ public class Woo{
 	return row;
     }
 
-
+    public boolean isPosValid(){
+        if(inBoardx(row))
+    }
     //
     public int chooseYCoord(){
 	System.out.println("Choose your checkerpiece(column number).");
@@ -85,21 +87,7 @@ public class Woo{
 	    chooseYCoord();
 	    System.out.println("You chose ");
 	    printPos();
-		   
-	    System.out.println("Choose a spot for the checkerpiece to move(x-coord)");
-	    try{
-		if(inBoardx(Keyboard.readInt())){
-		    System.out.println("This will check for valid move and execute");
-		}
-	    } catch (Exception e){
-	    }
-	    System.out.println("Choose a spot for the checkerpiece to move(y-coord)");
-	    try{
-		if(inBoardy(Keyboard.readInt())){
-		    System.out.println("This will check for valid move and execute");
-		}
-	    }catch (Exception e){
-	    }
+
 	    if(x.getrLeft() == 0){
 		ingame = false;
 		System.out.println("You lost!");

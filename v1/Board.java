@@ -17,7 +17,7 @@ public class Board {
 	return rLeft;
     }
 
-    public void setrLeft() {
+    public void setrLeft(){
 	rLeft -= 1;
     }
 

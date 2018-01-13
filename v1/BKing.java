@@ -1,13 +1,10 @@
 public class BKing extends Checkers{
-    // Instance vars
-    private char color; 
 
     public BKing() {
-	color = 'B';
+	    color = 'B';
     }
-
     
     public String toString() {
-	return "B";
+	    return "B";
     }    
 }
