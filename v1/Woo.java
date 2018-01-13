@@ -16,22 +16,20 @@ public class Woo{
     private int row;
     private int column;
     private String move;
-    private int numMove;
+    private int rnumMove;
+    private int bnumMove;
+    private char whoseturn;
     private String userName;
 		
     // Default Constructor
     public Woo(){
 	ingame = true;
 	runGame();
+	rnumMove = 0;
+	bnumMove = 0;
+	whoseturn = 'r';
     }
 
-    public int getCol() {
-	return column;
-    }
-
-    public int getRow() {
-	return row;
-    }
 
     // 
     public int[] getPos(){
@@ -47,8 +45,12 @@ public class Woo{
     }
 		
     //
-    public int getnumMove(){
-	return numMove;
+    public int getrnumMove(){
+	return rnumMove;
+    }
+
+    public int getbnumMove() {
+	return bnumMove;
     }
 
     //
@@ -93,29 +95,37 @@ public class Woo{
 	if(move.equals("fl")) {
 	    if(name.flValid(row,column) == true) {
 		name.flMove(row,column);
+		whoseturn = 'b';
+		rnumMove++;
 	    } else {
 		movements(name);
 	    }
 	} else if(move.equals("bl")) {
 	    if(name.blValid(row,column) == true) {
 	        name.blMove(row,column);
+		whoseturn = 'r';
+		bnumMove++;
 	    } else {
 		movements(name);
 	    }
 	} else if(move.equals("br")) {
 	    if(name.brValid(row,column) == true) {
 		name.brMove(row,column);
+		whoseturn = 'r';
+		bnumMove++;
 	    } else {
 		movements(name);
 	    }  
 	} else if(move.equals("fr")) {
 	    if(name.frValid(row,column) == true) {
 		name.frMove(row,column);
+		whoseturn = 'b';
+		rnumMove++;
 	    } else {
 		movements(name);
 	    }
 	} else {
-	    System.out.println("movements not valid");  
+	    System.out.println("movement you entered is not valid");  
 	}		 	  
     }
    
