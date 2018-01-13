@@ -25,6 +25,14 @@ public class Woo{
 	runGame();
     }
 
+    public int getCol() {
+	return column;
+    }
+
+    public int getRow() {
+	return row;
+    }
+
     // 
     public int[] getPos(){
 	int[] retArray = new int[2];
@@ -59,21 +67,58 @@ public class Woo{
     }
 
     //
-    public int chooseXCoord(){
-	System.out.println("Choose your checkerpiece(row number).");
-	row = Keyboard.readInt(); 
-	return row;
+    public void chooseXCoord(){
+	System.out.println("Choose the row number of your checkerpiece.");
+	row = Keyboard.readInt();
+	if(inBoardx(row) == false) {
+	    System.out.println("out of the board");
+	    chooseXCoord();
+	}
     }
 
-    public boolean isPosValid(){
-        if(inBoardx(row))
-    }
     //
-    public int chooseYCoord(){
-	System.out.println("Choose your checkerpiece(column number).");
+    public void chooseYCoord(){
+	System.out.println("Choose the column number of your checkerpiece..");
 	column = Keyboard.readInt();
-	return column;
+	if(inBoardy(column) == false) {
+	    System.out.println("out of the board");
+	    chooseYCoord();
+	}	
     }
+
+
+     public void movements(Board name) {
+	System.out.println("Choose your movement (fl,fr,br,bl): ");
+	move = Keyboard.readString();
+	if(move.equals("fl")) {
+	    if(name.flValid(row,column) == true) {
+		System.out.println("execute movements");
+	    } else {
+		movements(name);
+	    }
+	} else if(move.equals("bl")) {
+	    if(name.blValid(row,column) == true) {
+		System.out.println("execute movements");
+	    } else {
+		movements(name);
+	    }
+	} else if(move.equals("br")) {
+	    if(name.brValid(row,column) == true) {
+		System.out.println("execute movements");
+	    } else {
+		movements(name);
+	    }  
+	} else if(move.equals("fr")) {
+	    if(name.frValid(row,column) == true) {
+		System.out.println("execute movements");
+	    } else {
+		movements(name);
+	    }
+	} else {
+	    System.out.println("movements not valid");  
+	}		 	  
+    }
+   
 
 
 		
@@ -87,6 +132,7 @@ public class Woo{
 	    chooseYCoord();
 	    System.out.println("You chose ");
 	    printPos();
+	    movements(x);	    
 
 	    if(x.getrLeft() == 0){
 		ingame = false;

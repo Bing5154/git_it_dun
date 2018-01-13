@@ -118,6 +118,7 @@ public class Board {
 	return bol;
     }
 
+     
     
     public static void main(String args[]) {
 	Board hey = new Board();
