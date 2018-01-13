@@ -92,25 +92,25 @@ public class Woo{
 	move = Keyboard.readString();
 	if(move.equals("fl")) {
 	    if(name.flValid(row,column) == true) {
-		System.out.println("execute movements");
+		name.flMove(row,column);
 	    } else {
 		movements(name);
 	    }
 	} else if(move.equals("bl")) {
 	    if(name.blValid(row,column) == true) {
-		System.out.println("execute movements");
+	        name.blMove(row,column);
 	    } else {
 		movements(name);
 	    }
 	} else if(move.equals("br")) {
 	    if(name.brValid(row,column) == true) {
-		System.out.println("execute movements");
+		name.brMove(row,column);
 	    } else {
 		movements(name);
 	    }  
 	} else if(move.equals("fr")) {
 	    if(name.frValid(row,column) == true) {
-		System.out.println("execute movements");
+		name.frMove(row,column);
 	    } else {
 		movements(name);
 	    }
@@ -124,9 +124,9 @@ public class Woo{
 		
     public void runGame(){
 	System.out.println("Welcome to Checkers v1");
+	Board x = new Board();
+	x.initBoard();
 	while (ingame){
-	    Board x = new Board();
-	    x.initBoard();
 	    x.printBoard();
 	    chooseXCoord();
 	    chooseYCoord();

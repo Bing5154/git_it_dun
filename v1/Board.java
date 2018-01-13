@@ -105,7 +105,7 @@ public class Board {
 	return bol;
     }
 
-        public boolean brValid(int x, int y) {
+    public boolean brValid(int x, int y) {
 	boolean bol = true;
 	if (board[x][y].getColor() == 'r' || board[x][y].getColor() == '_' ){
 	    bol = false;
@@ -118,7 +118,29 @@ public class Board {
 	return bol;
     }
 
-     
+    public void flMove(int x, int y) {
+	Checkers temp = board[x - 1][y - 1];
+	board[x - 1][y - 1] = board[x][y];
+	board[x][y] = temp;	
+    }
+
+    public void frMove(int x, int y) {
+	Checkers temp = board[x][y];
+	board[x][y] = board[x-1][y+1];
+	board[x-1][y+1] = temp;
+    }
+
+    public void brMove(int x, int y) {
+	Checkers temp = board[x][y];
+	board[x][y] = board[x+1][y+1];
+	board[x+1][y+1] = temp;
+    }
+
+    public void blMove(int x, int y) {
+	Checkers temp = board[x][y];
+	board[x][y] = board[x+1][y-1];
+	board[x+1][y-1] = temp;
+    }
     
     public static void main(String args[]) {
 	Board hey = new Board();
