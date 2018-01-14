@@ -20,7 +20,7 @@ public class Woo{
     private int bnumMove;
     private char whoseturn;
     private String userName;
-		
+
     // Default Constructor
     public Woo(){
 	ingame = true;
@@ -31,7 +31,7 @@ public class Woo{
     }
 
 
-    // 
+    //
     public int[] getPos(){
 	int[] retArray = new int[2];
 	retArray[0] = row;
@@ -43,7 +43,7 @@ public class Woo{
     public void printPos(){
 	System.out.println("[" + row + "," + column + "]");
     }
-		
+
     //
     public int getrnumMove(){
 	return rnumMove;
@@ -85,9 +85,30 @@ public class Woo{
 	if(inBoardy(column) == false) {
 	    System.out.println("out of the board");
 	    chooseYCoord();
-	}	
+	}
     }
 
+    public boolean validChecker(Board b){
+        if((b.boardCheckerColor(row, column) == 'r') && (whoseturn == 'r')) {
+            return true;
+        } else if((b.boardCheckerColor(row,column) == 'b') && (whoseturn == 'b')){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+	public void chooseChecker(Board b){
+        chooseXCoord();
+        chooseYCoord();
+        System.out.println("You chose ");
+        printPos();
+        if(! (validChecker(b))) {
+            System.out.println("Invalid Checker! Choose again!");
+            b.printBoard();
+            chooseChecker(b);
+        }
+    }
 
      public void movements(Board name) {
 	System.out.println("Choose your movement (fl,fr,br,bl): ");
@@ -115,7 +136,7 @@ public class Woo{
 		bnumMove++;
 	    } else {
 		movements(name);
-	    }  
+	    }
 	} else if(move.equals("fr")) {
 	    if(name.frValid(row,column) == true) {
 		name.frMove(row,column);
@@ -125,23 +146,21 @@ public class Woo{
 		movements(name);
 	    }
 	} else {
-	    System.out.println("movement you entered is not valid");  
-	}		 	  
+	    System.out.println("movement you entered is not valid");
+	}
     }
-   
 
 
-		
+
+
     public void runGame(){
 	System.out.println("Welcome to Checkers v1");
 	Board x = new Board();
 	x.initBoard();
 	while (ingame){
+	    whoseturn = 'r';
 	    x.printBoard();
-	    chooseXCoord();
-	    chooseYCoord();
-	    System.out.println("You chose ");
-	    printPos();
+        chooseChecker(x);
 	    movements(x);	    
 
 	    if(x.getrLeft() == 0){
@@ -162,4 +181,5 @@ public class Woo{
 		
     }
 }
+
 

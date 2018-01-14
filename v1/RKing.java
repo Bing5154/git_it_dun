@@ -1,7 +1,7 @@
 public class RKing extends Checkers{
 
     public RKing() {
-	color = 'R';
+	color = 'r';
     }
 
     public String toString() {

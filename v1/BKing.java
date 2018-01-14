@@ -1,7 +1,7 @@
 public class BKing extends Checkers{
 
     public BKing() {
-	    color = 'B';
+	    color = 'b';
     }
     
     public String toString() {
