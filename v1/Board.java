@@ -4,6 +4,9 @@ public class Board {
 	private Checkers[][] board;
 	private int rLeft = 12;
 	private int bLeft = 12;
+    private int[] posr = new int[12];
+    private int[] posc = new int[12];
+
 
 
 	public Board() {
@@ -11,6 +14,15 @@ public class Board {
 		whoseTurn = 'r';
 
 	}
+
+	public String getposr(){
+	    String retStr = "[ ";
+	    for (int r: posr){
+	        retStr += r + " , ";
+        }
+        retStr += " ]";
+	    return retStr;
+    }
 
 	public int getrLeft(){
 		return rLeft;
@@ -116,6 +128,50 @@ public class Board {
 		}
 		return bol;
 	}
+
+    public boolean forcedCapture() {
+        boolean bol = false;
+        int i = 0;
+        for (int r = 0; r < SIZE; r++) {
+            for (int c = 0; c < SIZE; c++) {
+                if (board[r][c].getColor() == 'r') {
+                    if (c < 6 && r > 1) {
+                        if (board[r - 1][c + 1].getColor() == 'b' && board[r - 2][c + 2].getColor() == '_') {
+                            bol = true;
+                            posr[i] = r;
+                            posc[i] = c;
+                            i++;
+                        }
+                    }
+                    if (c > 1 && r > 1) {
+                        if (board[r - 1][c - 1].getColor() == 'b' && board[r - 2][c - 2].getColor() == '_') {
+                            bol = true;
+                            posr[i] = r;
+                            posc[i] = c;
+                            i++;
+                        }
+                    }
+                    if (c < 6 && r < 6) {
+                        if (board[r + 1][c + 1].getColor() == 'r' && board[r + 2][c + 2].getColor() == '_') {
+                            bol = true;
+                            posr[i] = r;
+                            posc[i] = c;
+                            i++;
+                        }
+                    }
+                    if (c < 1 && r < 6) {
+                        if (board[r + 1][c - 1].getColor() == 'r' && board[r + 2][c - 2].getColor() == '_') {
+                            bol = true;
+                            posr[i] = r;
+                            posc[i] = c;
+                            i++;
+                        }
+                    }
+                }
+            }
+        }
+        return bol;
+    }
 
 	public void flMove(int x, int y) {
 		Checkers temp = board[x - 1][y - 1];

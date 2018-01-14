@@ -159,6 +159,8 @@ public class Woo{
 	x.initBoard();
 	while (ingame){
 	    x.printBoard();
+	    System.out.println(x.forcedCapture());
+	    System.out.println(x.getposr());
         chooseChecker(x);
 	    movements(x);	    
 
