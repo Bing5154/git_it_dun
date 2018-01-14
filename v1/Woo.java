@@ -24,10 +24,10 @@ public class Woo{
     // Default Constructor
     public Woo(){
 	ingame = true;
-	runGame();
 	rnumMove = 0;
 	bnumMove = 0;
 	whoseturn = 'r';
+	runGame();
     }
 
 
@@ -158,7 +158,6 @@ public class Woo{
 	Board x = new Board();
 	x.initBoard();
 	while (ingame){
-	    whoseturn = 'r';
 	    x.printBoard();
         chooseChecker(x);
 	    movements(x);	    
