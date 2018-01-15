@@ -76,7 +76,7 @@ public class Woo{
 
     //
     public void chooseXCoord(){
-	System.out.println("Choose the row number of your checkerpiece.");
+	System.out.println(whoseturn + ") " +  "Choose the row number of your checkerpiece.");
 	row = Keyboard.readInt();
 	if(inBoardx(row) == false) {
 	    System.out.println("out of the board");
@@ -86,7 +86,7 @@ public class Woo{
 
     //
     public void chooseYCoord(){
-	System.out.println("Choose the column number of your checkerpiece..");
+	System.out.println(whoseturn + ")" +  "Choose the column number of your checkerpiece..");
 	column = Keyboard.readInt();
 	if(inBoardy(column) == false) {
 	    System.out.println("out of the board");
@@ -99,9 +99,12 @@ public class Woo{
             return true;
         } else if((b.boardCheckerColor(row,column) == 'b') && (whoseturn == 'b')){
             return true;
-        } else {
-            return false;
-        }
+        } else if(b.forcedCapture()) {
+	    if(b.getposr().contains(row) == false || b.getposc().contains(column) == false) {
+		return false;
+	    }
+	}
+	return false;
     }
 
 	public void chooseChecker(Board b){
@@ -151,11 +154,43 @@ public class Woo{
 	    } else {
 		movements(name);
 	    }
-	} else {
-	    System.out.println("movement you entered is not valid");
-	}
+	} 
     }
 
+
+    public void jump(Board name) {
+	if(name.getposr().contains(row) && name.getposc().contains(column)) {
+	    System.out.println("You can jump your checker now, please enter (fl,fr,bl,br) to indicate direction");
+	    move = Keyboard.readString();
+		if(move.equals("br")) {
+		    if(name.brjumpValid(row,column)) {
+			name.brJump(row,column);
+			whoseturn = 'r';
+			bnumMove++;
+		    }
+		} if(move.equals("bl")) {
+		    if(name.bljumpValid(row,column)) {
+			name.blJump(row,column);
+			whoseturn = 'r';
+			bnumMove++;
+		    }
+		} if(move.equals("fr")) {
+		    if(name.frjumpValid(row,column)) {
+			name.frJump(row, column);
+			whoseturn = 'b';
+			rnumMove++;
+		    }							 
+		} if(move.equals("fl")) {
+		    if(name.fljumpValid(row,column)) {
+			name.flJump(row,column);
+			whoseturn = 'b';
+			bnumMove++;			    
+		    }
+							 
+		}
+	    	    
+	}
+    }
 
 
 
@@ -183,19 +218,21 @@ public class Woo{
 	x.initBoard();
 	while (ingame){
 	    x.printBoard();
-	    //System.out.println(x.forcedCapture());
-	    //System.out.println(x.getposr());
-	    //System.out.println(x.getposc());
+	    x.clearposr();
+	    x.clearposc();
         chooseChecker(x);
-	    movements(x);	    
-
+	if(x.forcedCapture()) {
+	    jump(x); 
+	} else {
+	    movements(x);
+	}
 	    if(x.getrLeft() == 0){
 		ingame = false;
-		System.out.println("You lost!");
+		System.out.println("Black Wins!");
 	    }
 	    if(x.getbLeft() == 0){
 		ingame = false;
-		System.out.println("You win!");
+		System.out.println("Red wins!");
 	    }
 			
 	}

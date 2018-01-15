@@ -17,27 +17,27 @@ public class Board {
 
     }
 
-    public String getposr(){
-	String retStr = "[ ";
-	for (int r: posr){
-	    retStr += r + " , ";
-        }
-        retStr += " ]";
-	return retStr;
+    public void clearposr(){
+	posr = new ArrayList<Integer>(12);
+	
     }
 
-    public String getposc(){
-        String retStr = "[ ";
-        for (int c: posc){
-            retStr += c + " , ";
-        }
-        retStr += " ]";
-        return retStr;
+    public void clearposc(){
+	posc = new ArrayList<Integer>(12);
+    }
+    
+    public ArrayList<Integer> getposr() {
+	return posr;
     }
 
-    public String getposd(){
-        
+    public ArrayList<Integer> getposc() {
+	return posc;
     }
+
+    public ArrayList<String> getposd() {
+	return posd;
+    }
+  
     public int getrLeft(){
 	return rLeft;
     }
@@ -226,7 +226,7 @@ public class Board {
         if (board[x][y] instanceof RChecker) {
             return false;
         }
-        if(board[x + 1][y - 1].getColor() != '_' && board[x + 1][y - 1].getColor() != c && board[x+2][y+2].getColor() == '_'){
+        if(board[x + 1][y - 1].getColor() != '_' && board[x + 1][y - 1].getColor() != c && board[x+2][y-2].getColor() == '_'){
             bol = true;
         }
         return bol;
