@@ -19,7 +19,9 @@ public class Woo{
     private int rnumMove;
     private int bnumMove;
     private char whoseturn;
-    private String userName;
+    private String userName1;
+    private String userName2;
+    
 
     // Default Constructor
     public Woo(){
@@ -54,8 +56,12 @@ public class Woo{
     }
 
     //
-    public String getUserName(){
-	return userName;
+    public String getUserName1(){
+	return userName1;
+    }
+
+    public String getUserName2() {
+	return userName2;
     }
 
     //
@@ -155,12 +161,31 @@ public class Woo{
 
     public void runGame(){
 	System.out.println("Welcome to Checkers v1");
+	System.out.print("Player 1, please enter your username: ");
+	userName1 = Keyboard.readString();
+
+        System.out.print("Player 2, please enter your username: ");
+        userName2 = Keyboard.readString();
+
+	System.out.print("\n");
+	System.out.println("Players, please spend some time and read the instructions of the game carefully.");
+	System.out.println("1. Red Checkers always start first, so decide among yourself who would be the one to hold red");
+	System.out.println("2. The basic movement is to move a checker one diagonally forward or backward based on the color of your checker. For example, a black checker can only move backward, while a red checker can only move forward. You can execute movement by entering fl (forward left), fr(forward right), bl(backward left), br (backward right)");
+	System.out.println("3. If a jump is available for one of your pieces, you must make that jump (cannot move other pieces). If more jumps are available with that same piece, you must continue to jump with it until it can jump no more. When there is a jump avaliable, we will notify you and you can execute the jump with the same commands as simple movements");
+	System.out.println("4.When one of your checkers reaches the opposite side of the board, it is crowned and becomes a King. A King can move backward as well as forward along the diagonals");
+        System.out.println("\n");
+	System.out.println("Sounds fun, right? Let's get to it!");
+	System.out.print("Please type 'yay' to start, and ctrl-c to quit: ");
+	String ans = Keyboard.readString();
+    	
+				    
 	Board x = new Board();
 	x.initBoard();
 	while (ingame){
 	    x.printBoard();
 	    System.out.println(x.forcedCapture());
 	    System.out.println(x.getposr());
+	    System.out.println(x.getposc());
         chooseChecker(x);
 	    movements(x);	    
 
