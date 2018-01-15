@@ -7,6 +7,7 @@ public class Board {
     private int bLeft = 12;
     private ArrayList<Integer> posr = new ArrayList<Integer>(12);
     private ArrayList<Integer> posc = new ArrayList<Integer>(12);
+    private ArrayList<String> posd = new ArrayList<String>(12);
 
 
 
@@ -34,6 +35,9 @@ public class Board {
         return retStr;
     }
 
+    public String getposd(){
+        
+    }
     public int getrLeft(){
 	return rLeft;
     }
@@ -135,51 +139,6 @@ public class Board {
 	return bol;
     }
 
-    /*
-      public boolean forcedCapture() {
-      boolean bol = false;
-      int i = 0;
-      for (int r = 0; r < SIZE; r++) {
-      for (int c = 0; c < SIZE; c++) {
-      if (board[r][c].getColor() == 'r') {
-      if (c < 6 && r > 1) {
-      if (board[r - 1][c + 1].getColor() == 'b' && board[r - 2][c + 2].getColor() == '_') {
-      bol = true;
-      posr[i] = r;
-      posc[i] = c;
-      i++;
-      }
-      }
-      if (c > 1 && r > 1) {
-      if (board[r - 1][c - 1].getColor() == 'b' && board[r - 2][c - 2].getColor() == '_') {
-      bol = true;
-      posr[i] = r;
-      posc[i] = c;
-      i++;
-      }
-      }
-      if (c < 6 && r < 6) {
-      if (board[r + 1][c + 1].getColor() == 'r' && board[r + 2][c + 2].getColor() == '_') {
-      bol = true;
-      posr[i] = r;
-      posc[i] = c;
-      i++;
-      }
-      }
-      if (c < 1 && r < 6) {
-      if (board[r + 1][c - 1].getColor() == 'r' && board[r + 2][c - 2].getColor() == '_') {
-      bol = true;
-      posr[i] = r;
-      posc[i] = c;
-      i++;
-      }
-      }
-      }
-      }
-      }
-      return bol;
-      }
-    */
     public void flMove(int x, int y) {
 	Checkers temp;
 	if (x - 1 == 0 && board[x][y].getColor() == 'r'){
@@ -273,85 +232,196 @@ public class Board {
         return bol;
     }
 
-    public char boardCheckerColor(int row, int column) {
-	if (board[row][column].getColor() == 'r') {
-            /*debug
-	      System.out.println("r");
-            */
-	    return 'r';
-	} else if (board[row][column].getColor() == 'b') {
-            /* debug
-	       System.out.println("b");
-            */
-	    return 'b';
-	} else {
-            /* debug
-	       System.out.println("_");
-            */
-	    return '_';
-	}
+    public void makeKing(int x, int y){
+
     }
 
-    /*
-      public boolean jumpValid(int x, int y) {
-      boolean bol = false;
-      if(whoseTurn == 'r') {
-      if(y < 6 && x > 1){
-      if(board[x - 1][y + 1].getColor() == 'b' && board[x-2][y+2].getColor() == '_') {
-      bol = true ;}
-      }
-      if(y > 1 && x > 1){
-      if (board[x - 1][y - 1].getColor() == 'b' && board[x-2][y-2].getColor() == '_') {
-      bol = true;}
-      }
-      }
-      if(whoseTurn == 'b') {
-      if( y < 6 && x < 6){
-      if(board[x + 1][y + 1].getColor() == 'r' && board[x + 2][y+2].getColor() == '_') {
-      bol = true;}
-      }
-      if ( y < 1 && x < 6){
-      if (board[x + 1][y-1].getColor() == 'r' && board[x+2][y-2].getColor() == '_') {
-      bol = true;}
-      }
-      }
-      return bol;
-      }
-    */
+    public boolean forcedCapture(){
+        boolean boo = false;
+        for(int r = 0; r < SIZE; r++) {
+            for (int c = 0; c < SIZE; c++) {
+                if (!(board[r][c] instanceof BChecker) && board[r][c].getColor() != '_') {
+                    if (c < 2 && r > 1) {
+                        if (frjumpValid(r, c)) {
+                            posr.add(r);
+                            posc.add(c);
+                            posd.add("fr");
+                            boo = true;
+                        }
+                    }
+                    if (c > 5 && r > 1) {
+                        if (fljumpValid(r, c)) {
+                            posr.add(r);
+                            posc.add(c);
+                            posd.add("fl");
+                            boo = true;
+                        }
+                    }
+                    if(r > 1 && c >= 2 && c <= 5){
+                        if (fljumpValid(r, c)) {
+                            posr.add(r);
+                            posc.add(c);
+                            posd.add("fl");
+                            boo = true;
+                        }
+                        if (frjumpValid(r, c)) {
+                            posr.add(r);
+                            posc.add(c);
+                            posd.add("fr");
+                            boo = true;
+                        }
+                    }
+                }
+                if (!(board[r][c] instanceof RChecker) && board[r][c].getColor() != '_') {
+                    if (c < 2 && r < 6) {
+                        if (brjumpValid(r, c)) {
+                            posr.add(r);
+                            posc.add(c);
+                            posd.add("br");
+                            boo = true;
+                        }
+                    }
+                    if (c > 5 && r < 6) {
+                        if (bljumpValid(r, c)) {
+                            posr.add(r);
+                            posc.add(c);
+                            posd.add("br");
+                            boo = true;
+                        }
+                    }
+                    if (r < 6 && c >= 2 && c <= 5) {
+                        if (brjumpValid(r, c)) {
+                            posr.add(r);
+                            posc.add(c);
+                            posd.add("br");
+                            boo = true;
+                        }
+                        if (bljumpValid(r, c)) {
+                            posr.add(r);
+                            posc.add(c);
+                            posd.add("br");
+                            boo = true;
+                        }
+                    }
+                }
+            }
+        }
+	    return boo;
+    }
+
+
+
+    public void flJump(int x, int y){
+            Checkers space = new Checkers();
+            Checkers temp;
+            if (x - 2 == 0 && board[x][y].getColor() == 'r') {
+                temp = new RKing();
+            } else {
+                temp = board[x][y];
+            }
+            board[x][y] = board[x - 2][y - 2];
+            board[x - 1][y - 1] = space;
+            board[x - 2][y - 2] = temp; 
+        }
+
+
+
+    public void frJump(int x, int y){
+	    Checkers space = new Checkers();
+	    Checkers temp;
+	    if( x - 2 == 0 && board[x][y].getColor() == 'r'){
+	         temp = new RKing();
+	    }else {
+	        temp = board[x][y];
+        }
+        board[x][y] = board[x-2][y+2];
+        board[x-1][y+1] = space;
+        board[x-2][y+2] = temp;
+    }
+
+    public void blJump(int x, int y){
+        Checkers space = new Checkers();
+        Checkers temp;
+        if( x + 2 == 7 && board[x][y].getColor() == 'b'){
+	        temp = new BKing();
+        }else{
+            temp = board[x][y];
+        }
+            board[x][y] = board[x+2][y-2];
+            board[x+1][y-1] = space;
+            board[x+2][y-2] = temp;
+}
+
+    public void brJump(int x, int y){
+        Checkers space = new Checkers();
+        Checkers temp;
+        if( x + 2 == 7 && board[x][y].getColor() == 'b'){
+	        temp = new BKing();
+        }else{
+	        temp = board[x][y];
+        }
+        board[x][y] = board[x+2][y+2];
+        board[x+1][y+1] = space;
+        board[x+2][y+2] = temp;
+    }
+
+
+
+    public char boardCheckerColor(int row, int column) {
+        if (board[row][column].getColor() == 'r') {
+	    /*debug
+	    System.out.println("r");
+	    */
+	    return 'r';
+        } else if (board[row][column].getColor() == 'b') {
+	    /* debug
+	    System.out.println("b");
+	    */
+	    return 'b';
+        } else {
+	    /* debug
+	    System.out.println("_");
+	    */
+	    return '_';
+        }
+    }
+
     public static void main(String args[]) {
-	Board hey = new Board();
-	hey.initBoard();
-	hey.printBoard();
-	// Testing Jumping Methods
+        Board hey = new Board();
+        hey.initBoard();
+        hey.printBoard();
+        // Testing Jumping Methods
+        hey.frMove(5,1);
+        System.out.println(hey.forcedCapture());
+        hey.blMove(2,4);
+        System.out.println(hey.forcedCapture());
+        hey.printBoard();
+        System.out.println(hey.bljumpValid(4,2))	;
+        System.out.println(hey.fljumpValid(4,2)) ;
+        System.out.println(hey.brjumpValid(4,2));
+        System.out.println(hey.frjumpValid(4,2));
+        /*System.out.println( hey.flValid(5,1));
+        System.out.println( hey.flValid(2,2));
+        System.out.println( hey.frValid(5,3));
+        System.out.println( hey.flValid(6,0));
+        System.out.println( hey.blValid(5,1));
+
         hey.frMove(5,1);
         hey.blMove(2,4);
+        System.out.println("hello");
+        System.out.println(hey.jumpValid(4,2));
         hey.printBoard();
-	System.out.println(hey.bljumpValid(4,2))	;
-	System.out.println(hey.fljumpValid(4,2)) ;
-	System.out.println(hey.brjumpValid(4,2));
-	System.out.println(hey.frjumpValid(4,2));
-	/*System.out.println( hey.flValid(5,1));
-	  System.out.println( hey.flValid(2,2));
-	  System.out.println( hey.frValid(5,3));
-	  System.out.println( hey.flValid(6,0));
-	  System.out.println( hey.blValid(5,1));
 
-	  hey.frMove(5,1);
-	  hey.blMove(2,4);
-	  System.out.println("hello");
-	  System.out.println(hey.jumpValid(4,2));
-	  hey.printBoard();
+        hey.flMove(6,2);
+        hey.brMove(2,0);
+        System.out.println(hey.jumpValid(5,1));
+        hey.printBoard();
 
-	  hey.flMove(6,2);
-	  hey.brMove(2,0);
-	  System.out.println(hey.jumpValid(5,1));
-	  hey.printBoard();
+        System.out.println(hey.jumpValid(7,7));
 
-	  System.out.println(hey.jumpValid(7,7));
+        System.out.println(hey.jumpValid(7,5));
 
-	  System.out.println(hey.jumpValid(7,5));
-
-	  System.out.println(hey.jumpValid(6,1));
+        System.out.println(hey.jumpValid(6,1));
         */
 
     }
