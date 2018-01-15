@@ -116,7 +116,7 @@ public class Woo{
         }
     }
 
-     public void movements(Board name) {
+    public void movements(Board name) {
 	System.out.println("Choose your movement (fl,fr,br,bl): ");
 	move = Keyboard.readString();
 	if(move.equals("fl")) {
@@ -183,9 +183,9 @@ public class Woo{
 	x.initBoard();
 	while (ingame){
 	    x.printBoard();
-	    System.out.println(x.forcedCapture());
-	    System.out.println(x.getposr());
-	    System.out.println(x.getposc());
+	    //System.out.println(x.forcedCapture());
+	    //System.out.println(x.getposr());
+	    //System.out.println(x.getposc());
         chooseChecker(x);
 	    movements(x);	    
 
