@@ -237,7 +237,12 @@ public class Woo{
 	*/
 	if(x.isKing()) {
 	    ingame = false;
-	    System.out.println(x.getWinner() + " wins");
+	    System.out.print(x.getWinner() + " wins");
+	    if(x.getWinner().equals("Black")) {
+		    System.out.println(userName2 + " finished in " + bnumMove + "moves");
+	    } else {
+		System.out.println(userName1 + " finished in " + rnumMove + "moves");
+	    }
 	}
 	}
     }
