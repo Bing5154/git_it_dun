@@ -226,7 +226,7 @@ public class Woo{
 	} else {
 	    movements(x);
 	}
-	    if(x.getrLeft() == 0){
+	/*if(x.getrLeft() == 0){
 		ingame = false;
 		System.out.println("Black Wins!");
 	    }
@@ -234,7 +234,11 @@ public class Woo{
 		ingame = false;
 		System.out.println("Red wins!");
 	    }
-			
+	*/
+	if(x.isKing()) {
+	    ingame = false;
+	    System.out.println(x.getWinner() + " wins");
+	}
 	}
     }
 

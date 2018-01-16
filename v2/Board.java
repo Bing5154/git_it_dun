@@ -5,6 +5,7 @@ public class Board {
     private Checkers[][] board;
     private int rLeft = 12;
     private int bLeft = 12;
+    private String winner; 
     private ArrayList<Integer> posr = new ArrayList<Integer>(12);
     private ArrayList<Integer> posc = new ArrayList<Integer>(12);
     private ArrayList<String> posd = new ArrayList<String>(12);
@@ -14,6 +15,7 @@ public class Board {
     public Board() {
 	board = new Checkers[SIZE][SIZE];
 	whoseTurn = 'r';
+	winner = "Red";
 
     }
 
@@ -37,6 +39,10 @@ public class Board {
     public ArrayList<String> getposd() {
 	return posd;
     }
+
+    public String getWinner() {
+	return winner;
+    }
   
     public int getrLeft(){
 	return rLeft;
@@ -53,6 +59,20 @@ public class Board {
 
     public void setbLeft() {
 	bLeft -= 1;
+    }
+
+    public boolean isKing() {
+	boolean bol = false;
+	for (int c = 0; c < SIZE; c++) {
+	    if(board[0][c].getColor() == 'r') {
+		bol = true;
+	        winner = "Red";
+	    } else if (board[7][c].getColor() == 'b') {
+		bol = true;
+		winner = "Black";
+	    }
+	}
+	return bol;
     }
 
     public void initBoard() {
