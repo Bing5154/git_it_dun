@@ -3,15 +3,15 @@ Bing Li, Angela Tom, Brandon Chong
 APCS pd2
 todo.txt file - Our To-Do List
 
-1) Add swapping as methods of Board.java to represent movement
-2) Implement force jumping.
+1) (done) Add swapping as methods of Board.java to represent movement
+2) (done) Implement force jumping.
 
-3) Write the actual chckers part into the code as in an iteration, including an end to the game and players switching turns.
+3) (done) Write the actual chckers part into the code as in an iteration, including an end to the game and players switching turns.
 
-4) Debug at this point and make sure we have MVP.
-5) Make sure pieces turn into a king upon reaching the other side of the board.
-6) Test the game and further debug.
-7) Add strings to make sure a user will know what they're doing.
-8) Have the scores of the number of moves to win saved into a text file and updated as users run the code.
+4) (done) Debug at this point and make sure we have MVP.
+5) (done) Make sure pieces turn into a king upon reaching the other side of the board.
+6) (done) Test the game and further debug.
+7) (done) Add strings to make sure a user will know what they're doing.
+8) (not yet) Have the scores of the number of moves to win saved into a text file and updated as users run the code.
 
-9) Add strings to improve the user experience and make the design easier to understand.
+9) (done) Add strings to improve the user experience and make the design easier to understand.
