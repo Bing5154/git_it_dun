@@ -31,32 +31,33 @@ Flesh out each category whenever necessary, appropriate.
 ------------------------------------------
 OBSTACLES OVERCOME
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-<Wow, we so BOSS bc...>
+1. WE DID THE FORCED CAPTURE for regular checkers after 4 hours of argument and tons of keys!!! For us, that was the most difficult method to implement in the entire project, because there are so many restrictions to do.
+
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-<
-blah blah pesky bug...
-maybe some of these will move into the Obs.Ovrcm section...
->
+1. The forced capture and jump methods for Kings did not work as expected. So for our MVP, we made the first side that reaches the other side of the board (crown) the winner of the game 
 
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-<wow! oo! etc!...>
+1. Learned how to read and write into a txt file by watching a lot of YouTube videos (haven’t implement that in MVP, but will do before deadline)
+
 
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 We changed ___ to ___ bc...
-<etc>
-<etc>
+1. We changed Scanner class to have the Keyboard class, because Keyboard class is more versatile and can already catch exceptions
+2. Instead of implementing different movement methods and movement checks in different classes, which made accessing in Woo much harder, we decide to combine all of them into the Board class
+3. Instead of doing an automatic jump, we prompt the user to enter the direction they want to jump the checker (similar to movements) because we realized a checker can jump on either direction. This way, we can improve our user experience.
+
 
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 <tales of wisdom gained...>
-||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-
+1. Don’t try to reinvent the wheel when there is something already provided to us
+2. Talking with a diagram at hand is the best way to settle conflict
+3. Realized that GitHub is the best codesharing platform. (We used codeshare at first to sketch our idea, but it becomes really laggy after a few lines of code and the syntax there are horrible)
+4. Perserverance is the key to success 
 
  ______   ______   __   __   __       ______   _______     
 /_____/\ /_____/\ /_/\ /_/\ /_/\     /_____/\ /______/\    
@@ -69,24 +70,48 @@ LESSONS LEARNED
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
 
-2017-01-03
+2018-01-03
 --------------------------------------------------------------
 Bing Li :: Proposal
 Angela Tom :: Proposal
 Brandon Chong :: Proposal
 
-2017-01-04
+2018-01-04
 Bing Li :: Fixed proposal and UML
 Angela Tom :: Fixed proposal and looked over UML 
 Brandon Chong :: Fixed proposal and UML
 
-2017-01-05
+2018-01-05
 Angela Tom :: Did Checkers.java first version 
 Brandon Chong :: Started bCheckers.java and helped plan the board 
 Bing Li :: Started to fix the checker board
 
-2017-01-06
+2018-01-06
 Angela Tom :: Fixed Board.java and Checkers.java; worked on Woo.java
 Bing Li :: Fixed Board.java and modified Checkers.java; worked on bCheckers.java
+
+2018-01-08:
+Angela Tom:: updated the board, fixed all broken checker classes
+Brandon Chong and Bing:: worked on checking regular movements’ validity methods in CS Dojo together
+Bing: updated readme with instructions and description
+
+2018-01-09
+Brandon:: updated all Checker classes to show inheritance, updated the UML, did the todo.txt and devlog  
+
+2018-01-10
+Bing:: added cs1 package to our repo
+Everyone:: worked on flowchart for woo together
+
+2018-01-13
+Angela: fixed color of bKing and rKng
+Bing:: added methods that execute regular checker movements
+
+2018-01-14
+Brandon:: updated devlog, fixed todo list, did crowning, made a version 2 to save working code
+Bing:: added player prompts
+Angela: Added check for forced capture successfully
+
+2018-01-15
+Bing:: Implemented forced capture in Woo —> MVP accomplished
 
 ==============================================================
