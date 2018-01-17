@@ -36,11 +36,13 @@ OBSTACLES OVERCOME
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-1. The forced capture and jump methods for Kings did not work as expected. So for our MVP, we made the first side that reaches the other side of the board (crown) the winner of the game 
+1. If user accidentally enter a position that is trapped, will keep asking the user to input movement infinitely —> not good
+2. Only implemented 1 way of victory, which is to kill all enemy checkers. But victor could be declared if the enemy checker can no longer make a move (aka.trapped) —> We didn’t implement that in our game.
+3. The ending of the game was kind of iffy.
 
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-1. Learned how to read and write into a txt file by watching a lot of YouTube videos (haven’t implement that in MVP, but will do before deadline)
+1. Learned how to read and write into a txt file by watching a lot of YouTube videos (haven’t implement that in MVP, but will do before deadline) —> We did it!!!
 
 
 MID-DEVELOPMENT DESIGN CHANGES
@@ -58,6 +60,7 @@ LESSONS LEARNED
 2. Talking with a diagram at hand is the best way to settle conflict
 3. Realized that GitHub is the best codesharing platform. (We used codeshare at first to sketch our idea, but it becomes really laggy after a few lines of code and the syntax there are horrible)
 4. Perserverance is the key to success 
+5. Used complementary thinking! Why code forced capture for three different type of checkers when you can do !one type. (Save so much time and work)
 
  ______   ______   __   __   __       ______   _______     
 /_____/\ /_____/\ /_/\ /_/\ /_/\     /_____/\ /______/\    
