@@ -256,9 +256,7 @@ public class Board {
         return bol;
     }
 
-    public void makeKing(int x, int y){
-
-    }
+    
 
     public boolean forcedCapture(int row, int col, char comp){
         boolean boo = false;
@@ -338,57 +336,62 @@ public class Board {
 
 
     public void flJump(int x, int y){
-            Checkers space = new Checkers();
-            Checkers temp;
-            if (x - 2 == 0 && board[x][y].getColor() == 'r') {
-                temp = new RKing();
-            } else {
-                temp = board[x][y];
-            }
-            board[x][y] = board[x - 2][y - 2];
-            board[x - 1][y - 1] = space;
-            board[x - 2][y - 2] = temp; 
-        }
+	Checkers space = new Checkers();
+	Checkers temp;
+	if (x - 2 == 0 && board[x][y].getColor() == 'r') {
+	    temp = new RKing();
+	} else {
+	    temp = board[x][y];
+	}
+	board[x][y] = board[x - 2][y - 2];
+	board[x - 1][y - 1] = space;
+	board[x - 2][y - 2] = temp;
+	setbLeft();
+    }
 
 
 
     public void frJump(int x, int y){
-	    Checkers space = new Checkers();
-	    Checkers temp;
-	    if( x - 2 == 0 && board[x][y].getColor() == 'r'){
-	         temp = new RKing();
-	    }else {
-	        temp = board[x][y];
+	Checkers space = new Checkers();
+	Checkers temp;
+	if( x - 2 == 0 && board[x][y].getColor() == 'r'){
+	    temp = new RKing();
+	}else {
+	    temp = board[x][y];
         }
         board[x][y] = board[x-2][y+2];
         board[x-1][y+1] = space;
         board[x-2][y+2] = temp;
+	setbLeft();
+	
     }
 
     public void blJump(int x, int y){
         Checkers space = new Checkers();
         Checkers temp;
         if( x + 2 == 7 && board[x][y].getColor() == 'b'){
-	        temp = new BKing();
+	    temp = new BKing();
         }else{
             temp = board[x][y];
         }
-            board[x][y] = board[x+2][y-2];
-            board[x+1][y-1] = space;
-            board[x+2][y-2] = temp;
-}
+	board[x][y] = board[x+2][y-2];
+	board[x+1][y-1] = space;
+	board[x+2][y-2] = temp;
+	setrLeft();
+    }
 
     public void brJump(int x, int y){
         Checkers space = new Checkers();
         Checkers temp;
         if( x + 2 == 7 && board[x][y].getColor() == 'b'){
-	        temp = new BKing();
+	    temp = new BKing();
         }else{
-	        temp = board[x][y];
+	    temp = board[x][y];
         }
         board[x][y] = board[x+2][y+2];
         board[x+1][y+1] = space;
         board[x+2][y+2] = temp;
+	setrLeft();
     }
 
 
@@ -396,17 +399,17 @@ public class Board {
     public char boardCheckerColor(int row, int column) {
         if (board[row][column].getColor() == 'r') {
 	    /*debug
-	    System.out.println("r");
+	      System.out.println("r");
 	    */
 	    return 'r';
         } else if (board[row][column].getColor() == 'b') {
 	    /* debug
-	    System.out.println("b");
+	       System.out.println("b");
 	    */
 	    return 'b';
         } else {
 	    /* debug
-	    System.out.println("_");
+	       System.out.println("_");
 	    */
 	    return '_';
         }
@@ -425,27 +428,27 @@ public class Board {
         System.out.println(hey.brjumpValid(4,2));
         System.out.println(hey.frjumpValid(4,2));
         /*System.out.println( hey.flValid(5,1));
-        System.out.println( hey.flValid(2,2));
-        System.out.println( hey.frValid(5,3));
-        System.out.println( hey.flValid(6,0));
-        System.out.println( hey.blValid(5,1));
+	  System.out.println( hey.flValid(2,2));
+	  System.out.println( hey.frValid(5,3));
+	  System.out.println( hey.flValid(6,0));
+	  System.out.println( hey.blValid(5,1));
 
-        hey.frMove(5,1);
-        hey.blMove(2,4);
-        System.out.println("hello");
-        System.out.println(hey.jumpValid(4,2));
-        hey.printBoard();
+	  hey.frMove(5,1);
+	  hey.blMove(2,4);
+	  System.out.println("hello");
+	  System.out.println(hey.jumpValid(4,2));
+	  hey.printBoard();
 
-        hey.flMove(6,2);
-        hey.brMove(2,0);
-        System.out.println(hey.jumpValid(5,1));
-        hey.printBoard();
+	  hey.flMove(6,2);
+	  hey.brMove(2,0);
+	  System.out.println(hey.jumpValid(5,1));
+	  hey.printBoard();
 
-        System.out.println(hey.jumpValid(7,7));
+	  System.out.println(hey.jumpValid(7,7));
 
-        System.out.println(hey.jumpValid(7,5));
+	  System.out.println(hey.jumpValid(7,5));
 
-        System.out.println(hey.jumpValid(6,1));
+	  System.out.println(hey.jumpValid(6,1));
         */
 
     }
