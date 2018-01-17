@@ -265,6 +265,19 @@ public class Woo{
 	}
 	
 	}
+
+	HiScore scoreboard;
+	if (whoseturn == 'r'){
+	    try{
+	    scoreboard = new HiScore(userName2, userName1, bnumMove);
+	    }catch( IOException e){
+	    }
+	}else {
+	    try{
+	    scoreboard = new HiScore(userName1, userName2, rnumMove);
+	    }catch( IOException e){
+	    }
+	}
     }
     
 
