@@ -82,7 +82,7 @@ Angela Tom :: Fixed proposal and looked over UML
 Brandon Chong :: Fixed proposal and UML
 
 2018-01-05
-Angela Tom :: Did Checkers.java first version 
+Angela Tom :: Did Checkers.java first version; minor fixes
 Brandon Chong :: Started bCheckers.java and helped plan the board 
 Bing Li :: Started to fix the checker board
 
@@ -92,7 +92,7 @@ Bing Li :: Fixed Board.java and modified Checkers.java; worked on bCheckers.java
 
 2018-01-08:
 Angela Tom:: updated the board, fixed all broken checker classes
-Brandon Chong and Bing:: worked on checking regular movements’ validity methods in CS Dojo together
+Brandon Chong and Bing:: worked on checking regular movements validity methods in CS Dojo together
 Bing: updated readme with instructions and description
 
 2018-01-09
@@ -102,16 +102,24 @@ Brandon:: updated all Checker classes to show inheritance, updated the UML, did 
 Bing:: added cs1 package to our repo
 Everyone:: worked on flowchart for woo together
 
+2018-01-11
+Angela:: Making the checker classes better
+
 2018-01-13
-Angela: fixed color of bKing and rKng
+Angela: fixed color of bKing and rKng, added check for valid checker, board checker color method
 Bing:: added methods that execute regular checker movements
 
 2018-01-14
 Brandon:: updated devlog, fixed todo list, did crowning, made a version 2 to save working code
 Bing:: added player prompts
-Angela: Added check for forced capture successfully
+Angela: Added check for forced capture successfully; fixed all the movement methods to successfully work
 
 2018-01-15
-Bing:: Implemented forced capture in Woo —> MVP accomplished
+Bing:: Implemented forced capture in Woo
+Angela:: Made forced capture and jumping methods work
+
+2018-01-16
+Everyone:: Debug
+Bing:: Added more prompts and implemented methods into Woo for usage
 
 ==============================================================
