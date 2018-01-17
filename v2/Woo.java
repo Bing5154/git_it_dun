@@ -33,7 +33,7 @@ public class Woo{
     }
 
 
-    //
+    //get the row number and the column number
     public int[] getPos(){
 	int[] retArray = new int[2];
 	retArray[0] = row;
@@ -41,7 +41,7 @@ public class Woo{
 	return retArray;
     }
 
-    //
+    //print the row number and the column number that the user chose
     public void printPos(){
 	System.out.print("[" + row + "," + column + "]" + "\n");
     }
@@ -110,7 +110,7 @@ public class Woo{
         printPos();
 	if(b.forcedCapture(row,column,whoseturn)) {
 	    if(b.getposr().contains(row) == false || b.getposc().contains(column) == false) {
-		System.out.println("You have a forced capture availiable " + "on the " + whoseturn + " side, " + b.getposr().get(0) + "," +  b.getposc().get(0) +  "please check the board again." + "\n");
+		System.out.println("You have a forced capture availiable " + "on the " + whoseturn + " side, " +  "please check the board again." + "\n");
 		chooseChecker(b);
 	    }
 	}
@@ -157,39 +157,41 @@ public class Woo{
 
 
     public void jump(Board name) {
-	if(name.getposr().contains(row) && name.getposc().contains(column)) {
-	    System.out.println("You can jump your checker now, please enter (fl,fr,bl,br) to indicate direction");
-	    move = Keyboard.readString();
-	    if(name.getposd().contains(move)) {
-		if(move.equals("br")) {
-		    if(name.brjumpValid(row,column)) {
-			name.brJump(row,column);
+	//if(name.getposr().contains(row) && name.getposc().contains(column)) {
+	System.out.println("You can jump your checker now, please enter (fl,fr,bl,br) to indicate direction");
+	move = Keyboard.readString();
+	// if(name.getposd().contains(move)) {
+	if(name.checkF(row,column,move)) {
+	    if(move.equals("br")) {
+		if(name.brjumpValid(row,column)) {
+		    name.brJump(row,column);
 			
-		    }
-		} if(move.equals("bl")) {
-		    if(name.bljumpValid(row,column)) {
-			name.blJump(row,column);
-			
-		    }
-		} if(move.equals("fr")) {
-		    if(name.frjumpValid(row,column)) {
-			name.frJump(row, column);
-			
-		    }							 
-		} if(move.equals("fl")) {
-		    if(name.fljumpValid(row,column)) {
-			name.flJump(row,column);
-					    
-		    }
-							 
 		}
+	    } if(move.equals("bl")) {
+		if(name.bljumpValid(row,column)) {
+		    name.blJump(row,column);
+			
+		}
+	    } if(move.equals("fr")) {
+		if(name.frjumpValid(row,column)) {
+		    name.frJump(row, column);
+			
+		}							 
+	    } if(move.equals("fl")) {
+		if(name.fljumpValid(row,column)) {
+		    name.flJump(row,column);
+					    
+		}
+							 
 	    }
-	    else {
-		System.out.println("invalid jump, might be out of board");
-		jump(name);
-	    }
-	}	    
+	}
+	else {
+	    System.out.println("invalid jump, might be out of board");
+	    jump(name);
+	}
+
     }
+    
 
 
 
