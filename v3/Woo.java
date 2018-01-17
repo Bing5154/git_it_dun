@@ -266,8 +266,10 @@ public class Woo{
 	
 	}
 
+	//instantiate HiScore class
 	HiScore scoreboard;
 	if (whoseturn == 'r'){
+	    //try and catch pair for exceptions
 	    try{
 	    scoreboard = new HiScore(userName2, userName1, bnumMove);
 	    }catch( IOException e){

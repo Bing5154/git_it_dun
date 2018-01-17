@@ -37,6 +37,7 @@ public class HiScore{
 
     public HiScore(String play1, String play2, int num) throws IOException{
 	this();
+	//instantiating scanner
 	Scanner file = new Scanner(new File("score.txt"));
 
 	String[] first = file.nextLine().split(" ");
@@ -55,6 +56,7 @@ public class HiScore{
 	String winner3 = third[0];
 	String loser3 = third[1];
 	int moves3 = Integer.parseInt(third[2]);
+	
 	file.close();//kindly closes file for another user
 
 	String out1 = winner1 + " " + loser1 + " " + moves1;

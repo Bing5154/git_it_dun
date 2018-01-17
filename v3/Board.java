@@ -380,7 +380,11 @@ public class Board {
 	board[x][y] = board[x - 2][y - 2];
 	board[x - 1][y - 1] = space;
 	board[x - 2][y - 2] = temp;
-	setbLeft();
+	if (board[x-2][y-2] instanceof RChecker || board[x-2][y-2] instanceof RKing){
+	    setbLeft();
+	}else {
+	    setrLeft();
+	}
     }
 
 
@@ -397,8 +401,12 @@ public class Board {
         board[x][y] = board[x-2][y+2];
         board[x-1][y+1] = space;
         board[x-2][y+2] = temp;
-	setbLeft();
-	
+	if (board[x-2][y+2] instanceof RChecker || board[x-2][y+2] instanceof RKing){
+	    setbLeft();
+	}else {
+	    setrLeft();
+	}
+		
     }
 
     //execute backward left jump
@@ -413,7 +421,11 @@ public class Board {
 	board[x][y] = board[x+2][y-2];
 	board[x+1][y-1] = space;
 	board[x+2][y-2] = temp;
-	setrLeft();
+	if (board[x+2][y-2] instanceof BChecker || board[x+2][y-2] instanceof BKing){
+	    setrLeft();
+	}else {
+	    setbLeft();
+	}
     }
 
     //execute backward right jump
@@ -428,7 +440,11 @@ public class Board {
         board[x][y] = board[x+2][y+2];
         board[x+1][y+1] = space;
         board[x+2][y+2] = temp;
-	setrLeft();
+	if (board[x+2][y+2] instanceof BChecker || board[x+2][y+2] instanceof BKing){
+	    setrLeft();
+	}else {
+	    setbLeft();
+	}
     }
 
 
