@@ -46,35 +46,38 @@ public class Woo{
 	System.out.print("[" + row + "," + column + "]" + "\n");
     }
 
-    //
+    //accessor for the number of move red has done
     public int getrnumMove(){
 	return rnumMove;
     }
 
+    //accessor for the number of move black has done
     public int getbnumMove() {
 	return bnumMove;
     }
 
-    //
+    //accessor for the first username
     public String getUserName1(){
 	return userName1;
     }
 
+    //accessor for the second username
     public String getUserName2() {
 	return userName2;
     }
 
-    //
+    //check if the row number user entered is in the range of board
     public boolean inBoardx(int x){
 	return x >= 0 && x <= 7;
     }
 
-    //
+    //check if the column number user entered is in the range of board 
     public boolean inBoardy(int y){
 	return y >= 0 && y <= 7;
     }
 
-    //
+    //ask user for row number
+    //use inBoardx, and keep asking the user for row until it is in the range
     public void chooseXCoord(){
 	System.out.print(whoseturn + ") " +  "Choose the row number of your checkerpiece: ");
 	row = Keyboard.readInt();
@@ -84,7 +87,8 @@ public class Woo{
 	}
     }
 
-    //
+    //ask user for column number
+    //use inBoardy, and keep asking the user for column until it is in the range
     public void chooseYCoord(){
 	System.out.print(whoseturn + ")" +  "Choose the column number of your checkerpiece.. ");
 	column = Keyboard.readInt();
@@ -94,6 +98,7 @@ public class Woo{
 	}
     }
 
+    //Check color of the chosen checker, so that user are not picking checker not from their side
     public boolean validChecker(Board b){
         if((b.boardCheckerColor(row, column) == 'r') && (whoseturn == 'r')) {
             return true;
@@ -103,17 +108,20 @@ public class Woo{
 	return false;
     }
 
+    //incorporate all check methods    
     public void chooseChecker(Board b){
-        chooseXCoord();
-        chooseYCoord();
+        chooseXCoord();    //check range of x coord
+        chooseYCoord();    //check range of y coord
         System.out.print("You chose ");
         printPos();
+	//check forced capture, if false, recurse
 	if(b.forcedCapture(row,column,whoseturn)) {
 	    if(b.getposr().contains(row) == false || b.getposc().contains(column) == false) {
 		System.out.println("You have a forced capture availiable " + "on the " + whoseturn + " side, " +  "please check the board again." + "\n");
 		chooseChecker(b);
 	    }
 	}
+	//check color, if false, recurse
 	if(! (validChecker(b))) {
 	    System.out.println("Invalid Checker! Choose again!" + "\n");
 	    b.printBoard();
@@ -121,9 +129,13 @@ public class Woo{
 	}
     }
 
+    //incorporate all simple movement methods in board so that they flow according to flowchart
     public void movements(Board name) {
 	System.out.print("Choose your movement (fl,fr,br,bl):  ");
-	move = Keyboard.readString();
+	move = Keyboard.readString(); //store user input
+	//compare user input with each of the movement valid method
+	//if movement is valid, execute the move
+	//if movement not valid, keep asking for move until true
 	if(move.equals("fl")) {
 	    if(name.flValid(row,column)) {
 		name.flMove(row,column);
@@ -155,13 +167,15 @@ public class Woo{
 	} 
     }
 
-
+    //incorporate all jump methods in Board so that it flows according to the flowchart
     public void jump(Board name) {
-	//if(name.getposr().contains(row) && name.getposc().contains(column)) {
 	System.out.println("You can jump your checker now, please enter (fl,fr,bl,br) to indicate direction");
 	move = Keyboard.readString();
-	// if(name.getposd().contains(move)) {
+	//check if the user input match with the characteristic of the checkers availiable
+	//to do force capture
 	if(name.checkF(row,column,move)) {
+	    //check if the direction of jump the user enters make sense
+	    //if it makes sense, execute the jump
 	    if(move.equals("br")) {
 		if(name.brjumpValid(row,column)) {
 		    name.brJump(row,column);
@@ -185,6 +199,7 @@ public class Woo{
 							 
 	    }
 	}
+	//if the user input did not match with the characteristics of the checkers availiable to do force capture, then their jump is invalid
 	else {
 	    System.out.println("invalid jump, might be out of board");
 	    jump(name);
@@ -195,7 +210,7 @@ public class Woo{
 
 
 
-
+    //run the game
     public void runGame(){
 	System.out.println("Welcome to Checkers v1");
 	System.out.print("Player 1, please enter your username: ");
@@ -230,6 +245,7 @@ public class Woo{
 	    movements(x);
 	}
 
+	//switch turns
 	if(whoseturn == 'r') {
 	    whoseturn = 'b';
 	    bnumMove++;
@@ -237,6 +253,8 @@ public class Woo{
 	    whoseturn = 'r';
 	    rnumMove++;
 	}
+
+	//end game
 	if(x.getrLeft() == 0){
 	    ingame = false;
 	    System.out.println(userName2 + "Wins!");
@@ -245,16 +263,6 @@ public class Woo{
 	    ingame = false;
 	    System.out.println(userName1 + " wins!");
 	}
-       
-	/*if(x.isKing()) {
-	    ingame = false;
-	    System.out.print(x.getWinner() + " wins");
-	    if(x.getWinner().equals("Black")) {
-		    System.out.println(userName2 + " finished in " + bnumMove + "moves");
-	    } else {
-		System.out.println(userName1 + " finished in " + rnumMove + "moves");
-	    }
-	} */
 	
 	}
     }
