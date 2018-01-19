@@ -136,6 +136,9 @@ public class Woo{
 	//compare user input with each of the movement valid method
 	//if movement is valid, execute the move
 	//if movement not valid, keep asking for move until true
+	if(!(move.equals("bl")) && !(move.equals("br")) && !(move.equals("fr")) && !(move.equals("fl"))) {
+	    movements(name);
+	}
 	if(move.equals("fl")) {
 	    if(name.flValid(row,column)) {
 		name.flMove(row,column);
@@ -173,6 +176,9 @@ public class Woo{
 	move = Keyboard.readString();
 	//check if the user input match with the characteristic of the checkers availiable
 	//to do force capture
+	if(!(move.equals("bl")) && !(move.equals("br")) && !(move.equals("fr")) && !(move.equals("fl"))) {
+	    jump(name);
+	}
 	if(name.checkF(row,column,move)) {
 	    //check if the direction of jump the user enters make sense
 	    //if it makes sense, execute the jump
@@ -183,8 +189,7 @@ public class Woo{
 		}
 	    } if(move.equals("bl")) {
 		if(name.bljumpValid(row,column)) {
-		    name.blJump(row,column);
-			
+		    name.blJump(row,column);			
 		}
 	    } if(move.equals("fr")) {
 		if(name.frjumpValid(row,column)) {
@@ -193,12 +198,11 @@ public class Woo{
 		}							 
 	    } if(move.equals("fl")) {
 		if(name.fljumpValid(row,column)) {
-		    name.flJump(row,column);
-					    
+		    name.flJump(row,column);					    
 		}
-							 
 	    }
 	}
+      
 	//if the user input did not match with the characteristics of the checkers availiable to do force capture, then their jump is invalid
 	else {
 	    System.out.println("invalid jump, might be out of board");
@@ -261,7 +265,7 @@ public class Woo{
 	}
 	if(x.getbLeft() == 0){
 	    ingame = false;
-	    System.out.println(userName1 + " wins!");
+	    System.out.println(userName1 + " Wins!");
 	}
 	
 	}

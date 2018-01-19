@@ -31,14 +31,13 @@ Flesh out each category whenever necessary, appropriate.
 ------------------------------------------
 OBSTACLES OVERCOME
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-1. WE DID THE FORCED CAPTURE for regular checkers after 4 hours of argument and tons of keys!!! For us, that was the most difficult method to implement in the entire project, because there are so many restrictions to do.
+1. WE DID THE FORCED CAPTURE for regular checkers after 3 hours of argument and tons of keys!!! For us, that was the most difficult method to implement in the entire project, because there are so many restrictions to do.
 
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 1. If user accidentally enter a position that is trapped, will keep asking the user to input movement infinitely —> not good
-2. Only implemented 1 way of victory, which is to kill all enemy checkers. But victor could be declared if the enemy checker can no longer make a move (aka.trapped) —> We didn’t implement that in our game.
-3. The ending of the game was kind of iffy.
+2. Only implemented 1 way of victory, which is to kill all enemy checkers. But victor could not be declared if the enemy checker can no longer make a move (aka.stalemate) —> We didn’t implement that in our game because we ran out of time :(.
 
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -59,7 +58,7 @@ LESSONS LEARNED
 1. Don’t try to reinvent the wheel when there is something already provided to us
 2. Talking with a diagram at hand is the best way to settle conflict
 3. Realized that GitHub is the best codesharing platform. (We used codeshare at first to sketch our idea, but it becomes really laggy after a few lines of code and the syntax there are horrible)
-4. Perserverance is the key to success 
+4. Perseverance is the key to success 
 5. Used complementary thinking! Why code forced capture for three different type of checkers when you can do !one type. (Save so much time and work)
 
  ______   ______   __   __   __       ______   _______     
@@ -118,11 +117,17 @@ Bing:: added player prompts
 Angela: Added check for forced capture successfully; fixed all the movement methods to successfully work
 
 2018-01-15
+Everyone:: drafted the code for forced capture
 Bing:: Implemented forced capture in Woo
-Angela:: Made forced capture and jumping methods work
+Brandon:: drafted jump methods
+Angela:: made forced capture and jumping methods work
 
 2018-01-16
 Everyone:: Debug
 Bing:: Added more prompts and implemented methods into Woo for usage
+
+2018-01-18
+Move Woo to root directory
+
 
 ==============================================================
