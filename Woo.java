@@ -261,11 +261,11 @@ public class Woo{
 	//end game
 	if(x.getrLeft() == 0){
 	    ingame = false;
-	    System.out.println(userName2 + "Wins!");
+	    System.out.println(userName2 + " Wins" + " in " + bnumMove + " moves");
 	}
 	if(x.getbLeft() == 0){
 	    ingame = false;
-	    System.out.println(userName1 + " Wins!");
+	    System.out.println(userName1 + " Wins" + " in " + rnumMove + " moves");
 	}
 	
 	}
